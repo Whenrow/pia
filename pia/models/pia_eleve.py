@@ -13,13 +13,13 @@ class Eleve(models.Model):
     date_naissance = fields.Date('Date de naissance')
     rue = fields.Char()
     ville = fields.Char()
-    langue_maison = fields.Many2one('res.lang', 'Langue parlée à la maison')
+    langue_maison = fields.Char('Langue parlée à la maison')
 
     # Tuteurs
     nom_tuteur_1 = fields.Char('Nom')
     statut_tuteur_1 = fields.Selection([
         ('pere', 'Père'),
-        ('mère', 'Mère'),
+        ('mere', 'Mère'),
         ('tuteur', 'Tuteur légal')
     ], 'Status')
     telephone_tuteur_1 = fields.Char('Téléphone')
@@ -35,10 +35,11 @@ class Eleve(models.Model):
 
     # Infos
     parcours = fields.Text('Parcours scolaire')
-    objectif_integration = fields.Char('Objectifs intégration')
-    bilan_medical = fields.Char('Bilan médical')
-    situation_psycho_sociale = fields.Char('Situation psycho-sociale')
-    diagnostique = fields.Char('Diagnostique')
+    objectif_integration = fields.Text('Objectifs intégration')
+    bilan_medical = fields.Text('Bilan médical')
+    situation_psycho_sociale = fields.Text('Situation psycho-sociale')
+    diagnostic = fields.Text('Diagnostic')
+    intervenants_ext = fields.Text('Intervenant Extérieurs')
 
 
 class Trouble(models.Model):

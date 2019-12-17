@@ -14,7 +14,7 @@ class Implantation(models.Model):
         ('communal', 'Communal'),
         ('federation', 'Fédération Wallonie-Bruxelles'),
         ('autre', 'Autre')
-    ], required=True)
+    ])
     direction = fields.Char()
     telephone = fields.Char()
     gsm = fields.Char()

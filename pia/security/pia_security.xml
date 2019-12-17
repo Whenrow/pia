@@ -2,9 +2,16 @@
 <odoo>
     <data noupdate="1">
         <record id="group_pia_manager" model="res.groups">
-            <field name="name">Administrator</field>
+            <field name="name">Administrateur en chef</field>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record model="ir.rule" id="pia_eleve_rule">
+            <field name="name">pia eleve rule</field>
+            <field name="model_id" search="[('model','=','pia.eleve')]" model="ir.model"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('implantation_id','in', user.allowed_implantation_ids.ids)]</field>
         </record>
     </data>
 </odoo>

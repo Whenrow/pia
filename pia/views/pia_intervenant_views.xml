@@ -18,6 +18,8 @@
                                 <field name="telephone"/>
                                 <field name="email"/>
                                 <field name="implantation_id"/>
+                                <field name="user_id" string="Utilisateur" groups="pia.group_pia_manager"/>
+                                <field name="allowed_implantation_ids" widget="many2many_tags" groups="pia.group_pia_manager"/>
                             </group>
                             <group/>
                         </group>
@@ -25,7 +27,7 @@
                 </form>
             </field>
         </record>
-        
+
         <record id="pia_intervenant_tree_view" model="ir.ui.view">
             <field name="name">pia.intervenant.tree</field>
             <field name="model">pia.intervenant</field>
@@ -34,6 +36,19 @@
                     <field name="name"/>
                     <field name="fonction"/>
                 </tree>
+            </field>
+        </record>
+
+        <record id="pia_intervenant_search_view" model="ir.ui.view">
+            <field name="name">pia.intervenant.search</field>
+            <field name="model">pia.intervenant</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Fonction" name="groupby_fonction" domain="[]" context="{'group_by': 'fonction'}"/>
+                    </group>
+                </search>
             </field>
         </record>
     </data>

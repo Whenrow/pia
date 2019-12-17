@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pia.report_pia">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-4">
+                                <span>
+                                    <strong>Élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.eleve_id.name"/>
+                                <span>
+                                    <br/>
+                                    <strong>École</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.implantation_id.name"/>
+                            </div>
+                            <div class="col-4">
+                                <!-- <div class="col text-center">
+                                    <span t-field="doc.eleve_id.image" t-options-widget="&quot;image&quot;" style="width:120px;display:inline-block"/>
+                                </div> -->
+                            </div>
+                            <div class="col-4">
+                                <span>
+                                    <strong>Coordinateur</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.responsable_id.name"/>
+                                <span>
+                                    <br/>
+                                    <strong>Logopède</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.logo_id.name"/>
+                                <span>
+                                    <br/>
+                                    <strong>Instituteur/trice</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.instit_id.name"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u>PIA</u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:40px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Objectifs</span>
+                                    </th>
+                                    <th>
+                                        <span>Moyens</span>
+                                    </th>
+                                    <th>
+                                        <span>Outils</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.objectifs_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.objectif"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.moyen"/>
+                                    </td>
+                                    <td style="background-color:#FFFFFF">
+                                        <span t-field="table_line.outil"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -7,8 +7,7 @@ class Amenagement(models.Model):
     _name = 'pia.amenagement'
     _description = 'Amènagements raisonable'
 
-    name = fields.Char(required=True)
-    fase = fields.Char('FASE', required=True)
+    name = fields.Char(required=True, string="Aménagement")
     trouble = fields.Selection([
         ('asperger', 'Asperger'),
         ('dyscalculie', 'Dyscalculie'),
@@ -27,4 +26,4 @@ class Amenagement(models.Model):
         ('notes', 'Notes de cours'),
         ('evaluation', 'Evaluations')
     ], required=True)
-    commentairee = fields.Text('Commentaire')
+    commentaire = fields.Text('Commentaire')

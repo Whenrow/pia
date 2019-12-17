@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_conseil_form_view" model="ir.ui.view">
+            <field name="name">pia.conseil.form</field>
+            <field name="model">pia.conseil</field>
+            <field name="arch" type="xml">
+                <form string="conseil">
+                    <sheet string="conseil">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="eleve_id"/>
+                                <field name="implantation_id"/>
+                                <field name="trouble_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="responsable_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Intervenants">
+                                <field name="intervenant_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="fonction"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Observations">
+                                <group string="observations">
+                                    <field name="ressource"/>
+                                    <field name="besoin"/>
+                                    <field name="autre"/>
+                                </group>
+                            </page>
+                            <page string="Objectifs">
+                                <field name="objectifs_ids">
+                                    <tree>
+                                        <field name="objectif"/>
+                                        <field name="moyen"/>
+                                        <field name="is_logo"/>
+                                        <field name="is_instit"/>
+                                        <field name="is_titulaire"/>
+                                        <field name="outil"/>
+                                        <field name="evaluation"/>
+                                        <field name="commentaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="AR" attrs="{'invisible': [('trouble_ids', '=', [])]}">
+                                <field name="allowed_amenagement_ids" invisible="1"/>
+                                <field name="amenagement_ids" domain="[('id', 'in', allowed_amenagement_ids)]">
+                                    <tree>
+                                        <field name="trouble"/>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="commentaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Décisions">
+                                <group>
+                                    <field name="a_faire"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pia_conseil_tree_view" model="ir.ui.view">
+            <field name="name">pia.conseil.tree</field>
+            <field name="model">pia.conseil</field>
+            <field name="arch" type="xml">
+                <tree string="Conseil">
+                    <field name="name"/>
+                    <field name="eleve_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

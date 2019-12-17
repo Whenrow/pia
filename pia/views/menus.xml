@@ -11,29 +11,31 @@
             <field name="name">Elèves</field>
             <field name="res_model">pia.eleve</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_groupby_implantation': 1}</field>
         </record>
         <record model="ir.actions.act_window" id="pia.action_window_intervenant">
             <field name="name">Intervenants</field>
             <field name="res_model">pia.intervenant</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_groupby_fonction': 1}</field>
         </record>
-        <!-- <record model="ir.actions.act_window" id="pia.action_window_conseil">
-            <field name="name">pia conseil</field>
+        <record model="ir.actions.act_window" id="pia.action_window_conseil">
+            <field name="name">Conseils</field>
             <field name="res_model">pia.conseil</field>
             <field name="view_mode">tree,form</field>
         </record>
         <record model="ir.actions.act_window" id="pia.action_window_amenagement">
-            <field name="name">pia amenagement</field>
+            <field name="name">Amenagements</field>
             <field name="res_model">pia.amenagement</field>
             <field name="view_mode">tree,form</field>
-        </record> -->
+        </record>
         <!-- Top menu item -->
         <menuitem name="PIA" id="pia.menu_root"/>
         <!-- menu categories -->
-        <menuitem name="Implantation" id="pia.menu_implantation" parent="pia.menu_root" action="pia.action_window_implantation"/>
+        <menuitem name="Implantations" id="pia.menu_implantation" parent="pia.menu_root" action="pia.action_window_implantation"/>
         <menuitem name="Elèves" id="pia.menu_eleve" parent="pia.menu_root" action="pia.action_window_eleve"/>
-        <menuitem name="Intervenant" id="pia.menu_intervenant" parent="pia.menu_root" action="pia.action_window_intervenant"/>
-        <!-- <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil"/>
-        <menuitem name="Amenagement" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement"/> -->
+        <menuitem name="Intervenants" id="pia.menu_intervenant" parent="pia.menu_root" action="pia.action_window_intervenant"/>
+        <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil"/>
+        <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="pia.group_pia_manager"/>
     </data>
 </odoo>

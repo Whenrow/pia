@@ -25,8 +25,13 @@
         'security/pia_security.xml',
         'security/ir.model.access.csv',
         'views/menus.xml',
+        'reports/pia_reports.xml',
+        'reports/report_pia.xml',
+        'reports/report_pv.xml',
         'views/pia_eleve_views.xml',
         'views/pia_intervenant_views.xml',
         'views/pia_implantation_views.xml',
+        'views/pia_conseil_views.xml',
+        'views/pia_amenagement_views.xml',
     ],
 }

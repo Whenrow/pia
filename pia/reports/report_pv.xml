@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pia.report_pv">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="col text-center">
+                                    <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="col h2">
+                                    <span>
+                                        <b>
+                                            <u>PV conseil de classe</u>
+                                        </b>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <span>
+                                    <strong>Élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.eleve_id.name"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Intervenants</h3>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Nom</span>
+                                    </th>
+                                    <th>
+                                        <span>fonction</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.intervenant_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.fonction"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row" t-if="doc.a_faire">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>A faire:</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.a_faire"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3>Observations</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Ressources:</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.ressource"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Besoins:</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.besoin"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.autre">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Autres:</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.autre"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Objectifs</h3>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Objectifs</span>
+                                    </th>
+                                    <th>
+                                        <span>Moyens</span>
+                                    </th>
+                                    <th>
+                                        <span>Outils</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.objectifs_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.objectif"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.moyen"/>
+                                    </td>
+                                    <td style="background-color:#FFFFFF">
+                                        <span t-field="table_line.outil"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col">
+                                <h3>Décisions</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.a_faire"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
