@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_eleve_form_view" model="ir.ui.view">
+            <field name="name">pia.eleve.form</field>
+            <field name="model">pia.eleve</field>
+            <field name="arch" type="xml">
+                <form string="Elèves">
+                    <sheet string="Elèves">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="implantation_id"/>
+                                <field name="date_naissance"/>
+                                <span class="o_form_label" name="address_name">
+                                    <b>Adresse</b>
+                                </span>
+                                <div class="o_address_format">
+                                    <field name="rue" placeholder="Rue..." class="o_address_street"/>
+                                    <field name="ville" placeholder="Ville" class="o_address_city"/>
+                                </div>
+                                <field name="langue_maison"/>
+                            </group>
+                            <group/>
+                        </group>
+                        <group>
+                            <group string='Tuteur 1'>
+                                <field name="nom_tuteur_1"/>
+                                <field name="statut_tuteur_1"/>
+                                <field name="telephone_tuteur_1"/>
+                                <field name="email_tuteur_1"/>
+                            </group>
+                            <group string='Tuteur 2'>
+                                <field name="nom_tuteur_2"/>
+                                <field name="statut_tuteur_2"/>
+                                <field name="telephone_tuteur_2"/>
+                                <field name="email_tuteur_2"/>
+                            </group>
+                        </group>
+                        <field name="parcours"/>
+                        <field name="bilan_medical"/>
+                        <field name="situation_psycho_sociale"/>
+                        <field name="diagnostique"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pia_eleve_tree_view" model="ir.ui.view">
+            <field name="name">pia.eleve.tree</field>
+            <field name="model">pia.eleve</field>
+            <field name="arch" type="xml">
+                <tree string="Implantations">
+                    <field name="name"/>
+                    <field name="implantation_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
