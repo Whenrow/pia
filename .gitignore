@@ -14,6 +14,7 @@ __pycache__/
 *~
 # hg stuff
 *.orig
+*.csv
 status
 # odoo filestore
 odoo/filestore
