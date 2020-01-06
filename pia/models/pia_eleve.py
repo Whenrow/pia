@@ -21,7 +21,7 @@ class Eleve(models.Model):
         ('pere', 'Père'),
         ('mere', 'Mère'),
         ('tuteur', 'Tuteur légal')
-    ], 'Status')
+    ], 'Statut')
     telephone_tuteur_1 = fields.Char('Téléphone')
     email_tuteur_1 = fields.Char('Email')
     nom_tuteur_2 = fields.Char('Nom')
@@ -29,7 +29,7 @@ class Eleve(models.Model):
         ('pere', 'Père'),
         ('mère', 'Mère'),
         ('tuteur', 'Tuteur légal')
-    ], 'Status')
+    ], 'Statut')
     telephone_tuteur_2 = fields.Char('Téléphone')
     email_tuteur_2 = fields.Char('Email')
 
