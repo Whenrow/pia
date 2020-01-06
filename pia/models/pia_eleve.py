@@ -5,7 +5,7 @@ from odoo import models, fields
 
 class Eleve(models.Model):
     _name = 'pia.eleve'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin']
     _description = 'eleve'
 
     name = fields.Char()
