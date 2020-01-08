@@ -32,7 +32,7 @@ class Intervenant(models.Model):
         'pia_implantation_pia_intervenant_rel',
         'intervenant_id',
         'conseil_id',
-        'Implentations autorisées'
+        'Implantations autorisées'
     )
 
 
