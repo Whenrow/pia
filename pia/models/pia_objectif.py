@@ -11,7 +11,7 @@ class Objectif(models.Model):
     outil = fields.Text('Outils')
     commentaire = fields.Text('Commentaires')
     moyen = fields.Text('Moyen')
-    conseil_id = fields.Many2one('pia.conseil')
+    conseil_id = fields.Many2one('pia.conseil', invisible=True)
     evaluation = fields.Selection([
         ('atteint', 'Atteint'),
         ('non_atteint', 'Non atteint'),
