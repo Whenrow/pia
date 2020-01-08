@@ -32,8 +32,8 @@
         <!-- Top menu item -->
         <menuitem name="PIA" id="pia.menu_root"/>
         <!-- menu categories -->
+        <menuitem name="Elèves" id="pia.menu_eleve" parent="pia.menu_root" action="pia.action_window_eleve" sequence="1"/>
         <menuitem name="Implantations" id="pia.menu_implantation" parent="pia.menu_root" action="pia.action_window_implantation"/>
-        <menuitem name="Elèves" id="pia.menu_eleve" parent="pia.menu_root" action="pia.action_window_eleve"/>
         <menuitem name="Intervenants" id="pia.menu_intervenant" parent="pia.menu_root" action="pia.action_window_intervenant"/>
         <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil"/>
         <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="pia.group_pia_manager"/>
