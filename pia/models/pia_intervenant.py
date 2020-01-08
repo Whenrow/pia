@@ -26,12 +26,13 @@ class Intervenant(models.Model):
     telephone = fields.Char()
     email = fields.Char()
     implantation_id = fields.Many2one('pia.implantation', 'Organisme')
-    user_id = fields.Many2one('res.users')
+    user_id = fields.Many2one('res.users', 'Utilisateur')
     allowed_implantation_ids = fields.Many2many(
         'pia.implantation',
         'pia_implantation_pia_intervenant_rel',
         'intervenant_id',
-        'conseil_id'
+        'conseil_id',
+        'Implentations autorisées'
     )
 
 
