@@ -13,5 +13,12 @@
             <field name="global" eval="True"/>
             <field name="domain_force">[('implantation_id','in', user.allowed_implantation_ids.ids)]</field>
         </record>
+
+        <record model="ir.rule" id="pia_conseil_rule">
+            <field name="name">pia conseil rule</field>
+            <field name="model_id" search="[('model','=','pia.conseil')]" model="ir.model"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('implantation_id','in', user.allowed_implantation_ids.ids)]</field>
+        </record>
     </data>
 </odoo>
