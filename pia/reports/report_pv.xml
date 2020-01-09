@@ -6,26 +6,36 @@
                 <t t-call="web.external_layout">
                     <t t-foreach="docs" t-as="doc">
                         <div class="row">
-                            <div class="col-3">
-                                <div class="col text-center">
-                                    <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="col h2">
-                                    <span>
-                                        <b>
-                                            <u>PV conseil de classe</u>
-                                        </b>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <span>
                                     <strong>Élève</strong>
                                     <br/>
                                 </span>
                                 <span t-field="doc.eleve_id.name"/>
+                                <span>
+                                    <br/>
+                                    <strong>École</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.implantation_id.name"/>
+                            </div>
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4">
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u>PV <t t-esc="dict(doc.fields_get(allfields=['name'])['name']['selection'])[doc.name]"/></u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
                             </div>
                         </div>
                         <div class="row" style="margin-top:10px">
@@ -40,7 +50,7 @@
                                         <span>Nom</span>
                                     </th>
                                     <th>
-                                        <span>fonction</span>
+                                        <span>Fonction</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -129,6 +139,33 @@
                                     </td>
                                     <td style="background-color:#FFFFFF">
                                         <span t-field="table_line.outil"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Aménagements raisonnables</h3>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.amenagement_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
                                     </td>
                                 </tr>
                             </tbody>

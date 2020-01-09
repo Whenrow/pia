@@ -58,6 +58,11 @@
                                 <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
                             </div>
                         </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Objectifs</h3>
+                            </div>
+                        </div>
                         <table class="table table-bordered" style="margin-top:40px">
                             <thead>
                                 <tr>
@@ -82,6 +87,33 @@
                                     </td>
                                     <td style="background-color:#FFFFFF">
                                         <span t-field="table_line.outil"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Aménagements raisonnables</h3>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.amenagement_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
                                     </td>
                                 </tr>
                             </tbody>
