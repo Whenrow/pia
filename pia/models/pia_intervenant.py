@@ -21,7 +21,9 @@ class Intervenant(models.Model):
         ('directeur_int', 'Directrice intégration'),
         ('logo-ext', 'logopède extérieur'),
         ('titulaire', 'Titulaire ordinaire'),
-        ('coordinateur', 'Coordinateur/trice intégration')
+        ('coordinateur', 'Coordinateur/trice intégration'),
+        ('neuropsy-int', 'Neuropsy intégration'),
+        ('autre', 'Autre')
     ], required=True)
     telephone = fields.Char()
     email = fields.Char()
