@@ -41,7 +41,7 @@ class Conseil(models.Model):
     def _compute_allowed_amenagement_ids(self):
         for conseil in self:
             conseil.allowed_amenagement_ids = self.env['pia.amenagement'].search([
-                ('trouble', 'in', [str.lower(trouble) for trouble in conseil.trouble_ids.mapped('name')]),
+                ('trouble', 'in', [str.lower(trouble.split(' ')[0]) for trouble in conseil.trouble_ids.mapped('name')]),
             ])
 
     @api.depends('name')

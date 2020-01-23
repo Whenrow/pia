@@ -5,7 +5,7 @@ access_pia_eleve_user,pia.eleve.user,model_pia_eleve,base.group_user,1,1,1,0
 access_pia_implantation_user,pia.implantation.user,model_pia_implantation,base.group_user,1,0,0,0
 access_pia_intervenant_user,pia.intervenant.user,model_pia_intervenant,base.group_user,1,1,1,0
 access_pia_objectif_user,pia.objectif.user,model_pia_objectif,base.group_user,1,1,1,0
-access_pia_trouble_user,pia.trouble.user,model_pia_trouble,base.group_user,1,0,0,0
+access_pia_trouble_user,pia.trouble.user,model_pia_trouble,base.group_user,1,1,1,0
 access_pia_amenagement_manager,pia.amenagement.manager,model_pia_amenagement,pia.group_pia_manager,1,1,1,1
 access_pia_conseil_manager,pia.conseil.manager,model_pia_conseil,pia.group_pia_manager,1,1,1,1
 access_pia_eleve_manager,pia.eleve.manager,model_pia_eleve,pia.group_pia_manager,1,1,1,1
