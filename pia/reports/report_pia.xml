@@ -75,6 +75,9 @@
                                     <th>
                                         <span>Outils</span>
                                     </th>
+                                    <th>
+                                        <span>Responsable(s)</span>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -85,8 +88,19 @@
                                     <td>
                                         <span t-field="table_line.moyen"/>
                                     </td>
-                                    <td style="background-color:#FFFFFF">
+                                    <td>
                                         <span t-field="table_line.outil"/>
+                                    </td>
+                                    <td>
+                                        <span t-if="table_line.is_instit">
+                                            Instituteur/trice
+                                        </span>
+                                        <span t-if="table_line.is_logo">
+                                            Logopède
+                                        </span>
+                                        <span t-if="table_line.is_titulaire">
+                                            Titulaire
+                                        </span>
                                     </td>
                                 </tr>
                             </tbody>
