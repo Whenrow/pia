@@ -9,9 +9,9 @@
                     <sheet>
                         <group>
                                 <field name="objectif"/>
+                                <field name="moyen"/>
                                 <field name="outil"/>
                                 <field name="commentaire"/>
-                                <field name="moyen"/>
                         </group>
                         <group>
                             <group>
