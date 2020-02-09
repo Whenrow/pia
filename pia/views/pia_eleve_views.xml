@@ -7,6 +7,12 @@
             <field name="arch" type="xml">
                 <form string="Elèves">
                     <sheet string="Elèves">
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_conseil" type="object"
+                                class="oe_stat_button" icon="fa-users">
+                                <field name="conseil_count" widget="statinfo" string="CdC" />
+                            </button>
+                        </div>
                         <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
                         <div class="oe_title">
                             <h1>
@@ -74,11 +80,25 @@
             <field name="model">pia.eleve</field>
             <field name="arch" type="xml">
                 <search string="Implantations">
+                    <field name="name"/>
                     <group expand="0" string="Group By">
                         <filter string="École" name="groupby_implantation" domain="[]" context="{'group_by': 'implantation_id'}"/>
                     </group>
                 </search>
             </field>
         </record>
+
+        <record id="action_view_conseil" model="ir.actions.act_window">
+            <field name="name">Conseils de Classe</field>
+            <field name="res_model">pia.conseil</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer un conseil de classe
+              </p>
+            </field>
+        </record>
+
     </data>
 </odoo>
