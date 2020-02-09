@@ -37,6 +37,16 @@ class Conseil(models.Model):
 
     a_faire = fields.Text('A faire')
 
+    @api.onchange('eleve_id')
+    def _onchange_eleve_id(self):
+        self.intervenant_ids = [(5, 0, 0)]
+        if self.eleve_id:
+            conseil = self.env['pia.conseil'].search([
+                ('eleve_id', '=', self.eleve_id.id),
+            ])
+            if conseil - self:
+                self.intervenant_ids = [(6, 0, (conseil - self)[0].intervenant_ids.ids)]
+
     @api.depends('trouble_ids')
     def _compute_allowed_amenagement_ids(self):
         for conseil in self:
