@@ -32,6 +32,7 @@
         'views/pia_intervenant_views.xml',
         'views/pia_implantation_views.xml',
         'views/pia_conseil_views.xml',
+        'views/pia_reunion_parents_views.xml',
         'views/pia_amenagement_views.xml',
         'views/pia_objectif_views.xml',
     ],

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_reunion_parents_form_view" model="ir.ui.view">
+            <field name="name">pia.reunion.parents.form</field>
+            <field name="model">pia.reunion.parents</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="eleve_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Intervenants">
+                                <field name="intervenant_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="fonction"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Résumés">
+                                <group>
+                                    <field name="resume_parents"/>
+                                    <field name="resume_integration"/>
+                                    <field name="resume_ecole"/>
+                                    <field name="resume_pms"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pia_reunion_parents_tree_view" model="ir.ui.view">
+            <field name="name">pia.reunion.parents.tree</field>
+            <field name="model">pia.reunion.parents</field>
+            <field name="arch" type="xml">
+                <tree string="Conseil">
+                    <field name="name"/>
+                    <field name="eleve_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
