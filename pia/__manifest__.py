@@ -28,6 +28,7 @@
         'reports/pia_reports.xml',
         'reports/report_pia.xml',
         'reports/report_pv.xml',
+        'reports/report_reunion_parents.xml',
         'views/pia_eleve_views.xml',
         'views/pia_intervenant_views.xml',
         'views/pia_implantation_views.xml',

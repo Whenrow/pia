@@ -10,6 +10,7 @@ class ReunionParents(models.Model):
     name = fields.Char(default='New')
     date = fields.Date('Date', default=fields.Date.today)
     eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    implantation_id = fields.Many2one(related='eleve_id.implantation_id',string='Implantation')
     intervenant_ids = fields.Many2many(
         'pia.intervenant',
         'pia_intervant_pia_reunion_rel',

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pia.report_reunion_parents">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-4">
+                                <span>
+                                    <strong>Élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.eleve_id.name"/>
+                                <span>
+                                    <br/>
+                                    <strong>École</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.implantation_id.name"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u>Réunion de parents</u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Intervenants</h3>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Nom</span>
+                                    </th>
+                                    <th>
+                                        <span>Fonction</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.intervenant_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.fonction"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                         <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Résumé parents</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.resume_parents"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Résumé intégration</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.resume_integration"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Résumé école ordinaire</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.resume_ecole"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Résumé PMS</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.resume_pms"/>
+                            </div>
+                        </div>
+                   </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

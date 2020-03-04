@@ -18,5 +18,14 @@
             file="pia.report_pv"
             print_report_name="'PV%s' % object.report_name"
         />
+        <report
+            string="Réunion de parents"
+            id="action_report_reunion_parents"
+            model="pia.reunion.parents"
+            report_type="qweb-pdf"
+            name="pia.report_reunion_parents"
+            file="pia.report_reunion_parents"
+            print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
+        />
     </data>
 </odoo>
