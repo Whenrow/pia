@@ -27,5 +27,14 @@
             file="pia.report_reunion_parents"
             print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
         />
+        <report
+            string="Synthèse logopède"
+            id="action_report_synthese_logo"
+            model="pia.synthese.logo"
+            report_type="qweb-pdf"
+            name="pia.report_synthese_logo"
+            file="pia.report_synthese_logo"
+            print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
+        />
     </data>
 </odoo>

@@ -19,6 +19,11 @@
             <field name="view_mode">tree,form</field>
             <field name="context">{'search_default_groupby_fonction': 1}</field>
         </record>
+        <record model="ir.actions.act_window" id="pia.action_window_synthese_logo">
+            <field name="name">Synthèses logo</field>
+            <field name="res_model">pia.synthese.logo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
         <record model="ir.actions.act_window" id="pia.action_window_reunion_parents">
             <field name="name">Réunion de Parents</field>
             <field name="res_model">pia.reunion.parents</field>
@@ -42,6 +47,7 @@
         <menuitem name="Intervenants" id="pia.menu_intervenant" parent="pia.menu_root" action="pia.action_window_intervenant"/>
         <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil"/>
         <menuitem name="Réunions de parents" id="pia.menu_reunion_parents" parent="pia.menu_root" action="pia.action_window_reunion_parents"/>
+        <menuitem name="Synthèses logo" id="pia.menu_synthese_logo" parent="pia.menu_root" action="pia.action_window_synthese_logo"/>
         <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="pia.group_pia_manager"/>
     </data>
 </odoo>

@@ -7,6 +7,7 @@ access_pia_intervenant_user,pia.intervenant.user,model_pia_intervenant,base.grou
 access_pia_objectif_user,pia.objectif.user,model_pia_objectif,base.group_user,1,1,1,0
 access_pia_trouble_user,pia.trouble.user,model_pia_trouble,base.group_user,1,1,1,0
 access_pia_reunion_user,pia.reunion.user,model_pia_reunion_parents,base.group_user,1,1,1,0
+access_pia_synthese_logo,pia.synthese.user,model_pia_synthese_logo,base.group_user,1,1,1,0
 access_pia_amenagement_manager,pia.amenagement.manager,model_pia_amenagement,pia.group_pia_manager,1,1,1,1
 access_pia_conseil_manager,pia.conseil.manager,model_pia_conseil,pia.group_pia_manager,1,1,1,1
 access_pia_eleve_manager,pia.eleve.manager,model_pia_eleve,pia.group_pia_manager,1,1,1,1
@@ -15,3 +16,4 @@ access_pia_intervenant_manager,pia.intervenant.manager,model_pia_intervenant,pia
 access_pia_objectif_manager,pia.objectif.manager,model_pia_objectif,pia.group_pia_manager,1,1,1,1
 access_pia_trouble_manager,pia.trouble.manager,model_pia_trouble,pia.group_pia_manager,1,1,1,1
 access_pia_reunion_manager,pia.reunion.manager,model_pia_reunion_parents,pia.group_pia_manager,1,1,1,1
+access_pia_synthese_manager,pia.synthese.manager,model_pia_synthese_logo,pia.group_pia_manager,1,1,1,1

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pia.report_synthese_logo">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-4">
+                                <span>
+                                    <strong>Élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.eleve_id.name"/>
+                                <span>
+                                    <br/>
+                                    <strong>École</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.implantation_id.name"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u>Synthèse logopède</u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Ressources</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.ressources"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Difficultés</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.difficultes"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Objectifs de l'année</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.objectifs"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Outils mis en place</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.outils"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Pistes pour l'année prochaine</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.pistes"/>
+                            </div>
+                        </div>
+                   </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
