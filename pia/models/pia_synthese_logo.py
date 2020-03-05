@@ -15,9 +15,9 @@ class SyntheseLogo(models.Model):
     # Observations
     ressources = fields.Text('Ressources')
     difficultes = fields.Text('Difficultés')
-    objectifs = fields.Text('Objectifs logo de l''année')
+    objectifs = fields.Text('Objectifs logo de l\'année')
     outils = fields.Text('Outils mis en place')
-    pistes = fields.Text('Pistes à travailler pour l''année prochaine')
+    pistes = fields.Text('Pistes à travailler pour l\'année prochaine')
 
     @api.model
     def create(self, values):
