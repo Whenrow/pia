@@ -17,12 +17,14 @@ class Intervenant(models.Model):
         ('psy-pms', 'PSY-PMS ordinaire'),
         ('psy-pms-spe', 'PSY-PMS spécialisé'),
         ('inf-pms', 'INF-PMS ordinaire'),
+        ('inf-pms-spe', 'INF-PMS spécialisé'),
         ('directeur', 'Directeur/trice ordinaire'),
         ('directeur_int', 'Directrice intégration'),
         ('logo-ext', 'logopède extérieur'),
         ('titulaire', 'Titulaire ordinaire'),
         ('coordinateur', 'Coordinateur/trice intégration'),
         ('neuropsy-int', 'Neuropsy intégration'),
+        ('exterieur', 'Intervenant extérieur'),
         ('autre', 'Autre')
     ], required=True)
     telephone = fields.Char()
