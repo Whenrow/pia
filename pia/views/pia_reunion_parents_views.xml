@@ -21,7 +21,7 @@
                         <notebook>
                             <page string="Intervenants">
                                 <field name="intervenant_ids">
-                                    <tree>
+                                    <tree delete="1">
                                         <field name="name"/>
                                         <field name="fonction"/>
                                     </tree>
