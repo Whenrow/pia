@@ -69,6 +69,11 @@
                                     <field name="a_faire"/>
                                 </group>
                             </page>
+                            <page string="Entretiens ext.">
+                                <group>
+                                    <field name="entretien"/>
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>

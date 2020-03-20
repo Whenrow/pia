@@ -36,6 +36,7 @@ class Conseil(models.Model):
     autre = fields.Text('Autres')
 
     a_faire = fields.Text('A faire')
+    entretien = fields.Text('Entretiens extérieurs')
 
     @api.onchange('eleve_id')
     def _onchange_eleve_id(self):
