@@ -12,6 +12,10 @@
                                 class="oe_stat_button" icon="fa-users">
                                 <field name="conseil_count" widget="statinfo" string="CdC" />
                             </button>
+                            <button name="action_view_reunion" type="object"
+                                class="oe_stat_button" icon="fa-users">
+                                <field name="reunion_count" widget="statinfo" string="Réunions" />
+                            </button>
                         </div>
                         <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
                         <div class="oe_title">
@@ -85,6 +89,18 @@
                         <filter string="École" name="groupby_implantation" domain="[]" context="{'group_by': 'implantation_id'}"/>
                     </group>
                 </search>
+            </field>
+        </record>
+
+        <record id="action_view_reunion" model="ir.actions.act_window">
+            <field name="name">Réunions de parents</field>
+            <field name="res_model">pia.reunion.parents</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer une réunion de parents
+              </p>
             </field>
         </record>
 

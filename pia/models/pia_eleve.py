@@ -15,6 +15,7 @@ class Eleve(models.Model):
     ville = fields.Char()
     langue_maison = fields.Char('Langue parlée à la maison')
     conseil_count = fields.Integer(compute='_compute_conseil_count')
+    reunion_count = fields.Integer(compute='_compute_conseil_count')
 
     # Tuteurs
     nom_tuteur_1 = fields.Char('Nom')
@@ -44,10 +45,21 @@ class Eleve(models.Model):
 
     def _compute_conseil_count(self):
         for eleve in self:
-            count = self.env['pia.conseil'].search_count([
+            reunion_count = self.env['pia.reunion.parents'].search_count([
                 ('eleve_id', '=', eleve.id)
             ])
-            eleve.conseil_count = count
+            conseil_count = self.env['pia.conseil'].search_count([
+                ('eleve_id', '=', eleve.id)
+            ])
+            eleve.conseil_count = conseil_count
+            eleve.reunion_count = reunion_count
+
+    def action_view_reunion(self):
+        self.ensure_one()
+        action = self.env.ref('pia.action_view_reunion').read()[0]
+        action['domain'] = [('eleve_id', '=', self.id)]
+        action['context'] = dict(self._context, default_eleve_id=self.id)
+        return action
 
     def action_view_conseil(self):
         self.ensure_one()
