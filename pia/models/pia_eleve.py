@@ -16,6 +16,7 @@ class Eleve(models.Model):
     langue_maison = fields.Char('Langue parlée à la maison')
     conseil_count = fields.Integer(compute='_compute_conseil_count')
     reunion_count = fields.Integer(compute='_compute_conseil_count')
+    synthese_count = fields.Integer(compute='_compute_conseil_count')
 
     # Tuteurs
     nom_tuteur_1 = fields.Char('Nom')
@@ -45,6 +46,9 @@ class Eleve(models.Model):
 
     def _compute_conseil_count(self):
         for eleve in self:
+            synthese_count = self.env['pia.synthese.logo'].search_count([
+                ('eleve_id', '=', eleve.id)
+            ])
             reunion_count = self.env['pia.reunion.parents'].search_count([
                 ('eleve_id', '=', eleve.id)
             ])
@@ -53,6 +57,14 @@ class Eleve(models.Model):
             ])
             eleve.conseil_count = conseil_count
             eleve.reunion_count = reunion_count
+            eleve.synthese_count = synthese_count
+
+    def action_view_synthese(self):
+        self.ensure_one()
+        action = self.env.ref('pia.action_view_synthese').read()[0]
+        action['domain'] = [('eleve_id', '=', self.id)]
+        action['context'] = dict(self._context, default_eleve_id=self.id)
+        return action
 
     def action_view_reunion(self):
         self.ensure_one()
