@@ -46,7 +46,7 @@
             <field name="model">pia.reunion.parents</field>
             <field name="arch" type="xml">
                 <tree string="Conseil">
-                    <field name="name"/>
+                    <field name="name" string="Nom"/>
                     <field name="eleve_id"/>
                 </tree>
             </field>
