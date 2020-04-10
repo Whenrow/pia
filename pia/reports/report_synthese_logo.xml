@@ -89,6 +89,18 @@
                                 <span t-field="doc.pistes"/>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-8"/>
+                            <div class="col-4">
+                                <span t-field="doc.create_uid.name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8"/>
+                            <div class="col-4">
+                                <span>Logopède</span>
+                            </div>
+                        </div>
                    </t>
                 </t>
             </t>
