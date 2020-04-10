@@ -21,5 +21,6 @@ class SyntheseLogo(models.Model):
 
     @api.model
     def create(self, values):
-        values['name'] = self.env['ir.sequence'].next_by_code('pia.synthese.logo') or 'Nouveau'
+        if not values.get('name'):
+            values['name'] = self.env['ir.sequence'].next_by_code('pia.synthese.logo') or 'Nouveau'
         return super().create(values)
