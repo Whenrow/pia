@@ -33,8 +33,3 @@ class ReunionParents(models.Model):
             ])
             if reunion - self:
                 self.intervenant_ids = [(6, 0, (reunion - self)[0].intervenant_ids.ids)]
-
-    @api.model
-    def create(self, values):
-        values['name'] = self.env['ir.sequence'].next_by_code('pia.reunion.parents') or 'Nouveau'
-        return super().create(values)
