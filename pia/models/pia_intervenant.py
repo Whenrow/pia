@@ -48,7 +48,10 @@ class Users(models.Model):
 
     def _compute_allowed_implantation_ids(self):
         for user in self:
-            if user.intervenant_ids.allowed_implantation_ids:
-                user.allowed_implantation_ids = user.intervenant_ids.allowed_implantation_ids
+            if user.intervenant_ids or user.has_group('pia.group_pia_manager'):
+                if user.intervenant_ids.allowed_implantation_ids:
+                    user.allowed_implantation_ids = user.intervenant_ids.allowed_implantation_ids
+                else:
+                    user.allowed_implantation_ids = self.env['pia.implantation'].search([]).ids
             else:
-                user.allowed_implantation_ids = self.env['pia.implantation'].search([]).ids
+                user.allowed_implantation_ids = False
