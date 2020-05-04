@@ -36,5 +36,14 @@
             file="pia.report_synthese_logo"
             print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
         />
+        <report
+            string="Entretien extérieur"
+            id="action_report_entretien"
+            model="pia.entretien"
+            report_type="qweb-pdf"
+            name="pia.report_entretien"
+            file="pia.report_entretien"
+            print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
+        />
     </data>
 </odoo>

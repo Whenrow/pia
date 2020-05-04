@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_entretien_form_view" model="ir.ui.view">
+            <field name="name">pia.entretien.form</field>
+            <field name="model">pia.entretien</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="eleve_id" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="intervenants"/>
+                            <field name="entretien"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pia_entretien_tree_view" model="ir.ui.view">
+            <field name="name">pia.entretien.tree</field>
+            <field name="model">pia.entretien</field>
+            <field name="arch" type="xml">
+                <tree string="Entretien">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="eleve_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

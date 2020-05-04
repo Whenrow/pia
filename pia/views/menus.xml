@@ -24,6 +24,11 @@
             <field name="res_model">pia.synthese.logo</field>
             <field name="view_mode">tree,form</field>
         </record>
+        <record model="ir.actions.act_window" id="pia.action_window_entretien">
+            <field name="name">Entretiens Extérieurs</field>
+            <field name="res_model">pia.entretien</field>
+            <field name="view_mode">tree,form</field>
+        </record>
         <record model="ir.actions.act_window" id="pia.action_window_reunion_parents">
             <field name="name">Réunion de Parents</field>
             <field name="res_model">pia.reunion.parents</field>
@@ -43,11 +48,12 @@
         <menuitem name="PIA" id="pia.menu_root"/>
         <!-- menu categories -->
         <menuitem name="Elèves" id="pia.menu_eleve" parent="pia.menu_root" action="pia.action_window_eleve" sequence="1"/>
-        <menuitem name="Implantations" id="pia.menu_implantation" parent="pia.menu_root" action="pia.action_window_implantation"/>
-        <menuitem name="Intervenants" id="pia.menu_intervenant" parent="pia.menu_root" action="pia.action_window_intervenant"/>
-        <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil"/>
-        <menuitem name="Réunions de parents" id="pia.menu_reunion_parents" parent="pia.menu_root" action="pia.action_window_reunion_parents"/>
-        <menuitem name="Synthèses logo" id="pia.menu_synthese_logo" parent="pia.menu_root" action="pia.action_window_synthese_logo"/>
-        <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="pia.group_pia_manager"/>
+        <menuitem name="Implantations" id="pia.menu_implantation" parent="pia.menu_root" action="pia.action_window_implantation" sequence="2"/>
+        <menuitem name="Intervenants" id="pia.menu_intervenant" parent="pia.menu_root" action="pia.action_window_intervenant" sequence="3"/>
+        <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil" sequence="4"/>
+        <menuitem name="Réunions de parents" id="pia.menu_reunion_parents" parent="pia.menu_root" action="pia.action_window_reunion_parents" sequence="5"/>
+        <menuitem name="Entretiens extérieurs" id="pia.menu_entretien" parent="pia.menu_root" action="pia.action_window_entretien" sequence="6"/>
+        <menuitem name="Synthèses logo" id="pia.menu_synthese_logo" parent="pia.menu_root" action="pia.action_window_synthese_logo" sequence="7"/>
+        <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="pia.group_pia_manager" sequence="8"/>
     </data>
 </odoo>

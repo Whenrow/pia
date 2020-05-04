@@ -30,6 +30,7 @@
         'reports/report_pv.xml',
         'reports/report_reunion_parents.xml',
         'reports/report_synthese_logo.xml',
+        'reports/report_entretien.xml',
         'views/pia_eleve_views.xml',
         'views/pia_intervenant_views.xml',
         'views/pia_implantation_views.xml',
@@ -38,5 +39,6 @@
         'views/pia_amenagement_views.xml',
         'views/pia_objectif_views.xml',
         'views/pia_synthese_logo_views.xml',
+        'views/pia_entretien_views.xml',
     ],
 }
