@@ -9,3 +9,4 @@ from . import pia_eleve
 from . import pia_implantation
 from . import pia_intervenant
 from . import pia_objectif
+from . import pia_bilan_logo

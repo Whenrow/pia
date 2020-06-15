@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pia.report_bilan">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u>Bilan logopédique</u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="h5">
+                            <span>Bilan </span>
+                            <span t-field="doc.bilan_type"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    <strong>Eleve: </strong>
+                                    <span t-field="doc.eleve_id.name"/>
+                                </p>
+                                <p>
+                                    <strong>École: </strong>
+                                    <span t-field="doc.implantation_id.name"/>
+                                </p>
+                                <p>
+                                    <strong>Année scolaire: </strong>
+                                    <span t-field="doc.annee_scolaire"/>
+                                </p>
+                                <p>
+                                    <strong>Date: </strong>
+                                    <span t-field="doc.date"/>
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <span><strong>Test(s) utilisé(s)</strong></span><br/>
+                                <t t-foreach='doc.test_ids' t-as='test'>
+                                    <span class="offset-1" t-field="test.name"/><br/>
+                                </t>
+                                <span><strong>Étalonnage(s)</strong></span><br/>
+                                <t t-foreach='doc.etalonnage_ids' t-as='eta'>
+                                    <span class="offset-1" t-field="eta.name"/><br/>
+                                </t>
+                            </div>
+                        </div>
+                        <!-- <div class="row" style="margin-top:10px"> -->
+                        <!--     <div class="col"> -->
+                        <!--         <h3>Objectifs</h3> -->
+                        <!--     </div> -->
+                        <!-- </div> -->
+                        <!-- <table class="table table-bordered" style="margin-top:40px"> -->
+                        <!--     <thead> -->
+                        <!--         <tr> -->
+                        <!--             <th> -->
+                        <!--                 <span>Objectifs</span> -->
+                        <!--             </th> -->
+                        <!--             <th> -->
+                        <!--                 <span>Moyens</span> -->
+                        <!--             </th> -->
+                        <!--             <th> -->
+                        <!--                 <span>Outils</span> -->
+                        <!--             </th> -->
+                        <!--             <th> -->
+                        <!--                 <span>Responsable(s)</span> -->
+                        <!--             </th> -->
+                        <!--         </tr> -->
+                        <!--     </thead> -->
+                        <!--     <tbody> -->
+                        <!--         <tr t-foreach="doc.objectifs_ids" t-as="table_line"> -->
+                        <!--             <td> -->
+                        <!--                 <span t-field="table_line.objectif"/> -->
+                        <!--             </td> -->
+                        <!--             <td> -->
+                        <!--                 <span t-field="table_line.moyen"/> -->
+                        <!--             </td> -->
+                        <!--             <td> -->
+                        <!--                 <span t-field="table_line.outil"/> -->
+                        <!--             </td> -->
+                        <!--             <td> -->
+                        <!--                 <span t-if="table_line.is_instit"> -->
+                        <!--                     Instituteur/trice -->
+                        <!--                 </span> -->
+                        <!--                 <span t-if="table_line.is_logo"> -->
+                        <!--                     Logopède -->
+                        <!--                 </span> -->
+                        <!--                 <span t-if="table_line.is_titulaire"> -->
+                        <!--                     Titulaire -->
+                        <!--                 </span> -->
+                        <!--             </td> -->
+                        <!--         </tr> -->
+                        <!--     </tbody> -->
+                        <!-- </table> -->
+                        <!-- <div class="row" style="margin-top:10px"> -->
+                        <!--     <div class="col"> -->
+                        <!--         <h3>Aménagements raisonnables</h3> -->
+                        <!--     </div> -->
+                        <!-- </div> -->
+                        <!-- <table class="table table-bordered" style="margin-top:10px"> -->
+                        <!--     <thead> -->
+                        <!--         <tr> -->
+                        <!--             <th> -->
+                        <!--                 <span>Type</span> -->
+                        <!--             </th> -->
+                        <!--             <th> -->
+                        <!--                 <span>Amenagements</span> -->
+                        <!--             </th> -->
+                        <!--         </tr> -->
+                        <!--     </thead> -->
+                        <!--     <tbody> -->
+                        <!--         <tr t-foreach="doc.amenagement_ids" t-as="table_line"> -->
+                        <!--             <td> -->
+                        <!--                 <span t-field="table_line.type"/> -->
+                        <!--             </td> -->
+                        <!--             <td> -->
+                        <!--                 <span t-field="table_line.name"/> -->
+                        <!--             </td> -->
+                        <!--         </tr> -->
+                        <!--     </tbody> -->
+                        <!-- </table> -->
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -19,3 +19,8 @@ access_pia_trouble_manager,pia.trouble.manager,model_pia_trouble,pia.group_pia_m
 access_pia_reunion_manager,pia.reunion.manager,model_pia_reunion_parents,pia.group_pia_manager,1,1,1,1
 access_pia_synthese_manager,pia.synthese.manager,model_pia_synthese_logo,pia.group_pia_manager,1,1,1,1
 access_pia_entretien_manager,pia.entretien.manager,model_pia_entretien,pia.group_pia_manager,1,1,1,1
+access_pia_bilan_logo_manager,pia.bilan.logo.manager,model_pia_bilan_logo,pia.group_pia_manager,1,1,1,1
+access_pia_bilan_test_manager,pia.bilan.test.manager,model_pia_bilan_test,pia.group_pia_manager,1,1,1,1
+access_pia_bilan_etalonnage_manager,pia.bilan.etalonnage.manager,model_pia_bilan_etalonnage,pia.group_pia_manager,1,1,1,1
+access_pia_bilan_ana_quanti_manager,pia.bilan.ana.quanti.manager,model_pia_bilan_ana_quanti,pia.group_pia_manager,1,1,1,1
+access_pia_bilan_ana_quali_manager,pia.bilan.ana.quali.manager,model_pia_bilan_ana_quali,pia.group_pia_manager,1,1,1,1

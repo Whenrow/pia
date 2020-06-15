@@ -45,5 +45,14 @@
             file="pia.report_entretien"
             print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
         />
+        <report
+            string="Bilan logopédique"
+            id="action_report_bilan"
+            model="pia.bilan.logo"
+            report_type="qweb-pdf"
+            name="pia.report_bilan"
+            file="pia.report_bilan"
+            print_report_name="'Bilan logo - %s' % object.eleve_id.name"
+        />
     </data>
 </odoo>

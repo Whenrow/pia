@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_bilan_logo_form_view" model="ir.ui.view">
+            <field name="name">pia.bilan.logo.form</field>
+            <field name="model">pia.bilan.logo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="bilan_type" required="1"/>
+                                <field name="eleve_id" required="1"/>
+                                <field name="implantation_id"/>
+                                <field name="annee_scolaire"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="test_ids" widget="many2many_tags"/>
+                                <field name="etalonnage_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="anamnese"/>
+                            <field name="comportement"/>
+                        </group>
+                        <notebook>
+                            <page string="Analyse quantitative">
+                                <field name="ana_quanti_ids">
+                                    <tree editable="top">
+                                        <field name="test_id"/>
+                                        <field name="note"/>
+                                        <field name="ecart_type"/>
+                                        <field name="performance"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Analyse qualitative">
+                                <field name="ana_quali_ids">
+                                    <tree>
+                                        <field name="test_id"/>
+                                        <field name="commentaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Conclusion">
+                                <field name="conclusion"/>
+                                <field name="projet"/>
+                            </page>
+                            <page string="AR">
+                                <field name="amenagement_ids">
+                                    <tree>
+                                        <field name="trouble"/>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="commentaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pia_bilan_logo_tree_view" model="ir.ui.view">
+            <field name="name">pia.bilan.logo.tree</field>
+            <field name="model">pia.bilan.logo</field>
+            <field name="arch" type="xml">
+                <tree string="Bilans">
+                    <field name="eleve_id"/>
+                    <field name="annee_scolaire"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
