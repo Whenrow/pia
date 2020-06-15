@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pia.report_bilan">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u>Bilan logopédique</u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <h4>
+                            <span>Bilan </span>
+                            <span t-field="doc.bilan_type"/>
+                        </h4>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    <strong>Eleve: </strong>
+                                    <span t-field="doc.eleve_id.name"/>
+                                </p>
+                                <p>
+                                    <strong>École: </strong>
+                                    <span t-field="doc.implantation_id.name"/>
+                                </p>
+                                <p>
+                                    <strong>Année scolaire: </strong>
+                                    <span t-field="doc.annee_scolaire"/>
+                                </p>
+                                <p>
+                                    <strong>Date: </strong>
+                                    <span t-field="doc.date"/>
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <span><strong>Test(s) utilisé(s)</strong></span><br/>
+                                <t t-foreach='doc.test_ids' t-as='test'>
+                                    <span class="offset-1" t-field="test.name"/><br/>
+                                </t>
+                                <span><strong>Étalonnage(s)</strong></span><br/>
+                                <t t-foreach='doc.etalonnage_ids' t-as='eta'>
+                                    <span class="offset-1" t-field="eta.name"/><br/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Interprétation des résultats</h4>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <tr>
+                                <th>Note Standard (NS)</th>
+                                <th>Écart-type(&#x03C3;)</th>
+                                <th>Percentile</th>
+                                <th>Interprétation</th>
+                            </tr>
+                            <tr>
+                                <td>18-20</td>
+                                <td> &gt; 2&#x03C3;</td>
+                                <td> &gt; P97</td>
+                                <td>Performance excellente</td>
+                            </tr>
+                            <tr>
+                                <td>14-17</td>
+                                <td>Entre 1&#x03C3; et 2&#x03C3;</td>
+                                <td>Enter P84 et P97</td>
+                                <td>Très bonne performance</td>
+                            </tr>
+                            <tr>
+                                <td>10-13</td>
+                                <td>Entre 1&#x03C3; et 0&#x03C3;</td>
+                                <td>Entre P50 et P84</td>
+                                <td>Niveau moyen fort</td>
+                            </tr>
+                            <tr>
+                                <td>7-10</td>
+                                <td>Entre 0&#x03C3; et -1&#x03C3;</td>
+                                <td>Entre P16 et P50</td>
+                                <td>Niveau moyen faible</td>
+                            </tr>
+                            <tr>
+                                <td>4-7</td>
+                                <td>Entre -1&#x03C3; et -2&#x03C3;</td>
+                                <td>Entre P3 et P16</td>
+                                <td>Faible</td>
+                            </tr>
+                            <tr>
+                                <td>1-3</td>
+                                <td>-2&#x03C3;</td>
+                                <td> &lt; P3</td>
+                                <td>Déficitaire</td>
+                            </tr>
+                        </table>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Anamnèse</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.anamnese"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Comportement durant le testing</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.comportement"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h4>Analyse Quantitative</h4>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:40px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Épreuve</span>
+                                    </th>
+                                    <th>
+                                        <span>Note brute</span>
+                                    </th>
+                                    <th>
+                                        <span>Écart-type</span>
+                                    </th>
+                                    <th>
+                                        <span>Performance</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.ana_quanti_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.test_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.note"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.ecart_type"/>
+                                        <span>&#x03C3;</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.performance"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered" style="margin-top:40px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Épreuve</span>
+                                    </th>
+                                    <th>
+                                        <span>Commentaire</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.ana_quali_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.test_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.commentaire"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Conclusion</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.conclusion"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Projet pédagogique</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.projet"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h4>Aménagements raisonnables</h4>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                    <th>
+                                        <span>Commentaires</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.amenagement_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.commentaire"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-8"/>
+                            <div class="col-4">
+                                <span t-field="doc.create_uid.name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8"/>
+                            <div class="col-4">
+                                <span>Logopède</span>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
