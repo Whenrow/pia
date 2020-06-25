@@ -24,7 +24,7 @@ class BilanLogo(models.Model):
             'Novembre',
             'Décembre'
         ]
-        return months[datetime.now().month + 1] + ' ' + str(datetime.now().year)
+        return months[datetime.now().month - 1] + ' ' + str(datetime.now().year)
 
     name = fields.Char(related='eleve_id.name')
     date = fields.Char('Date', default=_get_default_date)

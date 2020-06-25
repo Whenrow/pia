@@ -45,7 +45,7 @@
             <field name="view_mode">tree,form</field>
         </record>
         <record model="ir.actions.act_window" id="pia.action_window_bilan">
-            <field name="name">Bilan logopédique</field>
+            <field name="name">Bilans logopédique</field>
             <field name="res_model">pia.bilan.logo</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -60,6 +60,6 @@
         <menuitem name="Entretiens extérieurs" id="pia.menu_entretien" parent="pia.menu_root" action="pia.action_window_entretien" sequence="6"/>
         <menuitem name="Synthèses logo" id="pia.menu_synthese_logo" parent="pia.menu_root" action="pia.action_window_synthese_logo" sequence="7"/>
         <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="pia.group_pia_manager" sequence="8"/>
-        <menuitem name="Bilan logo" id="pia.menu_bilan" parent="pia.menu_root" action="pia.action_window_bilan" groups="pia.group_pia_manager" sequence="9"/>
+        <menuitem name="Bilans logo" id="pia.menu_bilan" parent="pia.menu_root" action="pia.action_window_bilan" groups="pia.group_pia_manager" sequence="9"/>
     </data>
 </odoo>
