@@ -29,6 +29,7 @@
                         </div>
                         <group>
                             <group>
+                                <field name="annee_etude"/>
                                 <field name="implantation_id"/>
                                 <field name="date_naissance"/>
                                 <span class="o_form_label" name="address_name">
@@ -78,6 +79,7 @@
             <field name="arch" type="xml">
                 <tree string="Implantations">
                     <field name="name"/>
+                    <field name="annee_etude"/>
                     <field name="implantation_id"/>
                 </tree>
             </field>

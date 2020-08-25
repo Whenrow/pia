@@ -43,6 +43,21 @@ class Eleve(models.Model):
     situation_psycho_sociale = fields.Text('Situation psycho-sociale')
     diagnostic = fields.Text('Diagnostic')
     intervenants_ext = fields.Text('Intervenant Extérieurs')
+    annee_etude = fields.Selection([
+       ('m3', 'M3'),
+       ('p1', 'P1'),
+       ('p1b', 'P1 bis'),
+       ('p2', 'P2'),
+       ('p2b', 'P2 bis'),
+       ('p3', 'P3'),
+       ('p3b', 'P3 bis'),
+       ('p4', 'P4'),
+       ('p4b', 'P4 bis'),
+       ('p5', 'P5'),
+       ('p5b', 'P5 bis'),
+       ('p6', 'P6'),
+       ('p6b', 'P6 bis')
+    ], string='Année d\'étude')
 
     def _compute_conseil_count(self):
         for eleve in self:
