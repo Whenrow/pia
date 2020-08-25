@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class Implantation(models.Model):
     _name = 'pia.implantation'
     _description = 'implantation'
+    _order = 'name'
 
     name = fields.Char(required=True)
     fase = fields.Char('FASE', required=True)

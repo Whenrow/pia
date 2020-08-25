@@ -7,6 +7,7 @@ class Eleve(models.Model):
     _name = 'pia.eleve'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin']
     _description = 'eleve'
+    _order = 'annee_etude, name'
 
     name = fields.Char()
     implantation_id = fields.Many2one('pia.implantation', 'Implantation')
