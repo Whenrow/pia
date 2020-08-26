@@ -13,6 +13,7 @@ class Conseil(models.Model):
         ('troisieme', 'Troisième conseil de classe')
     ], required=True)
     date = fields.Date('Date', default=fields.Date.today)
+    annee_scolaire = fields.Char('Année scolaire', compute='_compute_annee_scolaire', store=True)
     eleve_id = fields.Many2one('pia.eleve', 'Elève')
     implantation_id = fields.Many2one(related='eleve_id.implantation_id', string='Implantation')
     responsable_id = fields.Many2one('pia.intervenant', 'Responsable')
@@ -86,3 +87,14 @@ class Conseil(models.Model):
                     conseil.logo_id = inter
                 elif inter.fonction == 'instit':
                     conseil.instit_id = inter
+
+    @api.depends('date')
+    def _compute_annee_scolaire(self):
+        for conseil in self:
+            if not conseil.date:
+                conseil.annee_scolaire = 'inconnu'
+                continue
+            if conseil.date.month <= 7:
+                conseil.annee_scolaire = str(conseil.date.year - 1) + ' - ' + str(conseil.date.year)
+            else:
+                conseil.annee_scolaire = str(conseil.date.year) + ' - ' + str(conseil.date.year + 1)

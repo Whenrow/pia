@@ -87,7 +87,21 @@
                 <tree string="Conseil">
                     <field name="name"/>
                     <field name="eleve_id"/>
+                    <field name="annee_scolaire"/>
                 </tree>
+            </field>
+        </record>
+
+        <record id="pia_conseil_search_view" model="ir.ui.view">
+            <field name="name">pia.conseil.search</field>
+            <field name="model">pia.conseil</field>
+            <field name="arch" type="xml">
+                <search string="Année">
+                    <field name="name"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Année" name="groupby_annee" domain="[]" context="{'group_by': 'annee_scolaire'}"/>
+                    </group>
+                </search>
             </field>
         </record>
     </data>
