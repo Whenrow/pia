@@ -72,13 +72,20 @@ class BilanLogo(models.Model):
     @api.depends('ana_quali_ids.test_id', 'ana_quanti_ids.test_id')
     def _compute_test_ids(self):
         for bilan in self:
-            bilan.test_ids = self.ana_quali_ids.test_id | self.ana_quanti_ids.test_id
+            bilan.test_ids = self.ana_quanti_ids.test_id
 
     def _set_test_ids(self):
-        for test in (self.test_ids - self.ana_quali_ids.test_id):
-            self.ana_quali_ids = [(0, 0, {'test_id': test.id})]
+        command = []
+        for ana in self.ana_quanti_ids:
+            if ana.test_id not in self.test_ids:
+                command.append((2, ana.id))
         for test in (self.test_ids - self.ana_quanti_ids.test_id):
-            self.ana_quanti_ids = [(0, 0, {'test_id': test.id})]
+            vals = {
+                'bilan_id': self.id,
+                'test_id': test.id,
+            }
+            command.append((0, 0, vals))
+        self.write({'ana_quanti_ids': command})
 
 
 class BilanTest(models.Model):
