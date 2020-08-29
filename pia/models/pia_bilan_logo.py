@@ -29,6 +29,7 @@ class BilanLogo(models.Model):
     name = fields.Char(related='eleve_id.name')
     date = fields.Char('Date', default=_get_default_date)
     eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    date_naissance = fields.Date(related='eleve_id.date_naissance')
     implantation_id = fields.Many2one(related='eleve_id.implantation_id',string='Implantation')
     annee_scolaire = fields.Selection([
        ('m3', 'M3'),
@@ -109,7 +110,9 @@ class BilanAnalyseQuantitatif(models.Model):
     bilan_id = fields.Many2one('pia.bilan.logo', 'Bilan')
     test_id = fields.Many2one('pia.bilan.test', 'Epreuve')
     note = fields.Float('Note brute', digits=(2,1))
+    note_pre = fields.Float('Note brute (année précédente)', digits=(2,1))
     ecart_type = fields.Float('Écart-type', digits=(1,2))
+    ecart_type_pre = fields.Float('Écart-type (année précédente)', digits=(1,2))
     performance = fields.Selection([
         ('ex', 'Performance excellente'),
         ('tb', 'Très bonne performance'),
