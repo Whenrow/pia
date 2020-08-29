@@ -135,7 +135,28 @@ class BilanAnalyseQualitatif(models.Model):
     _description = 'Analyse qualitatif d\'un bilan logopédique'
 
     bilan_id = fields.Many2one('pia.bilan.logo', 'Bilan')
-    test_id = fields.Many2one('pia.bilan.test', 'Epreuve')
+    test_id = fields.Many2one('pia.bilan.test', 'Test')
+    epreuve_id = fields.Many2one('pia.bilan.test.epreuve', 'Epreuve')
     commentaire = fields.Text('Commentaire')
+    allowed_epreuve_ids = fields.One2many('pia.bilan.test.epreuve', compute='_compute_allowed_epreuve_ids')
+
+    @api.depends('bilan_id.test_ids')
+    def _compute_allowed_epreuve_ids(self):
+        for ana in self:
+            ana.allowed_epreuve_ids = self.env['pia.bilan.test.epreuve'].search([
+                ('test_id', 'in', ana.bilan_id.test_ids.ids)
+            ])
 
 
+class BilanTestEpreuve(models.Model):
+    _name = 'pia.bilan.test.epreuve'
+    _description = 'Epreuve exalangue/examath d\'un bilan logopédique'
+    _order = 'test_id, name'
+
+    test_id = fields.Many2one('pia.bilan.test', 'Test')
+    name = fields.Char('Titre')
+    description = fields.Char('Description')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name, test_id)', "Cette épreuve existe déjà"),
+    ]

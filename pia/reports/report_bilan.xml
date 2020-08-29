@@ -166,6 +166,9 @@
                                         <span>Épreuve</span>
                                     </th>
                                     <th>
+                                        <span>Description</span>
+                                    </th>
+                                    <th>
                                         <span>Commentaire</span>
                                     </th>
                                 </tr>
@@ -173,7 +176,10 @@
                             <tbody>
                                 <tr t-foreach="doc.ana_quali_ids" t-as="table_line">
                                     <td>
-                                        <span t-field="table_line.test_id"/>
+                                        <span t-field="table_line.epreuve_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.epreuve_id.description"/>
                                     </td>
                                     <td>
                                         <span t-field="table_line.commentaire"/>
@@ -218,7 +224,7 @@
                                         <span>Amenagements</span>
                                     </th>
                                     <th>
-                                        <span>Commentaires</span>
+                                        <span>Commentaire</span>
                                     </th>
                                 </tr>
                             </thead>

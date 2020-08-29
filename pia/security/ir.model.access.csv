@@ -24,3 +24,4 @@ access_pia_bilan_test_manager,pia.bilan.test.manager,model_pia_bilan_test,pia.gr
 access_pia_bilan_etalonnage_manager,pia.bilan.etalonnage.manager,model_pia_bilan_etalonnage,pia.group_pia_manager,1,1,1,1
 access_pia_bilan_ana_quanti_manager,pia.bilan.ana.quanti.manager,model_pia_bilan_ana_quanti,pia.group_pia_manager,1,1,1,1
 access_pia_bilan_ana_quali_manager,pia.bilan.ana.quali.manager,model_pia_bilan_ana_quali,pia.group_pia_manager,1,1,1,1
+access_pia_bilan_test_epreuve_manager,pia.bilan.test.epreuve.manager,model_pia_bilan_test_epreuve,pia.group_pia_manager,1,1,1,1

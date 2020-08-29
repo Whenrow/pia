@@ -41,7 +41,9 @@
                             <page string="Analyse qualitative">
                                 <field name="ana_quali_ids">
                                     <tree editable="top">
-                                        <field name="test_id"/>
+                                        <field name="allowed_epreuve_ids" invisible="1"/>
+                                        <field name="test_id" invisible="1"/>
+                                        <field name="epreuve_id" domain="[('id', 'in', allowed_epreuve_ids)]"/>
                                         <field name="commentaire"/>
                                     </tree>
                                 </field>
@@ -65,6 +67,18 @@
                         </notebook>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <record id="pia_bilan_logo_test_epreuve_tree_view" model="ir.ui.view">
+            <field name="name">pia.bilan.logo.test.epreuve.tree</field>
+            <field name="model">pia.bilan.test.epreuve</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="test_id"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
             </field>
         </record>
 
