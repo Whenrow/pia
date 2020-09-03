@@ -62,7 +62,7 @@ class Eleve(models.Model):
 
     def _compute_conseil_count(self):
         for eleve in self:
-            synthese_count = self.env['pia.synthese.logo'].search_count([
+            synthese_count = self.env['pia.synthese.logo'].sudo().search_count([
                 ('eleve_id', '=', eleve.id)
             ])
             reunion_count = self.env['pia.reunion.parents'].search_count([

@@ -13,8 +13,9 @@
                                 <field name="conseil_count" widget="statinfo" string="CdC" />
                             </button>
                             <button name="action_view_synthese" type="object"
+                                groups="pia.group_pia_logo"
                                 class="oe_stat_button" icon="fa-users">
-                                <field name="synthese_count" widget="statinfo" string="Synthèses" />
+                                <field name="synthese_count" groups="pia.group_pia_logo" widget="statinfo" string="Synthèses" />
                             </button>
                             <button name="action_view_reunion" type="object"
                                 class="oe_stat_button" icon="fa-users">
