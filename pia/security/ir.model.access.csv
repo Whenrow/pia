@@ -22,6 +22,7 @@ access_pia_bilan_test_logo,pia.bilan.test.logo,model_pia_bilan_test,pia.group_pi
 access_pia_bilan_etalonnage_logo,pia.bilan.etalonnage.logo,model_pia_bilan_etalonnage,pia.group_pia_logo,1,1,1,0
 access_pia_bilan_ana_quanti_logo,pia.bilan.ana.quanti.logo,model_pia_bilan_ana_quanti,pia.group_pia_logo,1,1,1,0
 access_pia_bilan_ana_quali_logo,pia.bilan.ana.quali.logo,model_pia_bilan_ana_quali,pia.group_pia_logo,1,1,1,0
+access_pia_bilan_ana_logo,pia.bilan.ana.logo,model_pia_bilan_ana,pia.group_pia_logo,1,1,1,0
 access_pia_bilan_test_epreuve_logo,pia.bilan.test.epreuve.logo,model_pia_bilan_test_epreuve,pia.group_pia_logo,1,1,1,0
 access_pia_amenagement_manager,pia.amenagement.manager,model_pia_amenagement,pia.group_pia_manager,1,1,1,1
 access_pia_conseil_manager,pia.conseil.manager,model_pia_conseil,pia.group_pia_manager,1,1,1,1
@@ -38,4 +39,5 @@ access_pia_bilan_test_manager,pia.bilan.test.manager,model_pia_bilan_test,pia.gr
 access_pia_bilan_etalonnage_manager,pia.bilan.etalonnage.manager,model_pia_bilan_etalonnage,pia.group_pia_manager,1,1,1,1
 access_pia_bilan_ana_quanti_manager,pia.bilan.ana.quanti.manager,model_pia_bilan_ana_quanti,pia.group_pia_manager,1,1,1,1
 access_pia_bilan_ana_quali_manager,pia.bilan.ana.quali.manager,model_pia_bilan_ana_quali,pia.group_pia_manager,1,1,1,1
+access_pia_bilan_ana_manager,pia.bilan.ana.logo,model_pia_bilan_ana,pia.group_pia_manager,1,1,1,1
 access_pia_bilan_test_epreuve_manager,pia.bilan.test.epreuve.manager,model_pia_bilan_test_epreuve,pia.group_pia_manager,1,1,1,1

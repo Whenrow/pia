@@ -56,37 +56,21 @@ class BilanLogo(models.Model):
         ('evo_math', 'd\'évolution en mathématique')
     ], string='Bilan')
 
-    test_ids = fields.Many2many('pia.bilan.test', compute='_compute_test_ids', inverse='_set_test_ids', string='Test(s) utilisé(s)')
+    test_ids = fields.Many2many('pia.bilan.test', string='Test(s) utilisé(s)')
     etalonnage_ids = fields.Many2many('pia.bilan.etalonnage', string='Étalonnage utilisés')
 
     anamnese = fields.Text('Anamnèse')
     comportement = fields.Text('Comportement durant le testing')
 
+    # TODO: remove
     ana_quanti_ids = fields.One2many('pia.bilan.ana.quanti', 'bilan_id', 'Analyse quantitatif')
     ana_quali_ids = fields.One2many('pia.bilan.ana.quali', 'bilan_id', 'Analyse qualitatif')
+
+    ana_ids = fields.One2many('pia.bilan.ana', 'bilan_id', 'Analyses')
     amenagement_ids = fields.Many2many('pia.amenagement', string='AR')
 
     conclusion = fields.Text('Conclusion')
     projet = fields.Text('Project thérapeutique')
-
-    @api.depends('ana_quali_ids.test_id', 'ana_quanti_ids.test_id')
-    def _compute_test_ids(self):
-        for bilan in self:
-            bilan.test_ids = self.ana_quanti_ids.test_id
-
-    def _set_test_ids(self):
-        command = []
-        for ana in self.ana_quanti_ids:
-            if ana.test_id not in self.test_ids:
-                command.append((2, ana.id))
-        for test in (self.test_ids - self.ana_quanti_ids.test_id):
-            vals = {
-                'bilan_id': self.id,
-                'test_id': test.id,
-            }
-            command.append((0, 0, vals))
-        self.write({'ana_quanti_ids': command})
-
 
 class BilanTest(models.Model):
     _name = 'pia.bilan.test'
@@ -110,6 +94,7 @@ class BilanEtalonnage(models.Model):
     ]
 
 
+# TODO: Remove
 class BilanAnalyseQuantitatif(models.Model):
     _name = 'pia.bilan.ana.quanti'
     _description = 'Analyse quantitatif d\'un bilan logopédique'
@@ -138,6 +123,35 @@ class BilanAnalyseQualitatif(models.Model):
     test_id = fields.Many2one('pia.bilan.test', 'Test')
     epreuve_id = fields.Many2one('pia.bilan.test.epreuve', 'Epreuve')
     commentaire = fields.Text('Commentaire')
+    allowed_epreuve_ids = fields.One2many('pia.bilan.test.epreuve', compute='_compute_allowed_epreuve_ids')
+
+    @api.depends('bilan_id.test_ids')
+    def _compute_allowed_epreuve_ids(self):
+        for ana in self:
+            ana.allowed_epreuve_ids = self.env['pia.bilan.test.epreuve'].search([
+                ('test_id', 'in', ana.bilan_id.test_ids.ids)
+            ])
+
+class BilanAnalyse(models.Model):
+    _name = 'pia.bilan.ana'
+    _description = 'Analyse d\'un bilan logopédique'
+
+    bilan_id = fields.Many2one('pia.bilan.logo', 'Bilan')
+    test_id = fields.Many2one(related='epreuve_id.test_id')
+    epreuve_id = fields.Many2one('pia.bilan.test.epreuve', 'Epreuve')
+    note = fields.Char('Note brute')
+    note_pre = fields.Char('Note brute (année précédente)')
+    ecart_type = fields.Float('Écart-type', digits=(1,2))
+    ecart_type_pre = fields.Float('Écart-type (année précédente)', digits=(1,2))
+    commentaire = fields.Text('Commentaire')
+    performance = fields.Selection([
+        ('ex', 'Performance excellente'),
+        ('tb', 'Très bonne performance'),
+        ('mfo', 'Niveau moyen fort'),
+        ('mfa', 'Niveau moyen faible'),
+        ('f', 'Faible'),
+        ('d', 'Déficitaire')
+    ], string='Performance')
     allowed_epreuve_ids = fields.One2many('pia.bilan.test.epreuve', compute='_compute_allowed_epreuve_ids')
 
     @api.depends('bilan_id.test_ids')

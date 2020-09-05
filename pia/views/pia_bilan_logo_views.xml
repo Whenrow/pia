@@ -26,24 +26,15 @@
                             <field name="comportement"/>
                         </group>
                         <notebook>
-                            <page string="Analyse quantitative">
-                                <field name="ana_quanti_ids">
-                                    <tree editable="top">
-                                        <field name="test_id"/>
+                            <page string="Analyses">
+                                <field name="ana_ids">
+                                    <tree>
+                                        <field name="epreuve_id"/>
                                         <field name="note_pre" string="Note 2019"/>
                                         <field name="ecart_type_pre" string="Écart-type 2019 (&#x03C3;)"/>
                                         <field name="note"/>
                                         <field name="ecart_type" string="Écart-type (&#x03C3;)"/>
                                         <field name="performance"/>
-                                    </tree>
-                                </field>
-                            </page>
-                            <page string="Analyse qualitative">
-                                <field name="ana_quali_ids">
-                                    <tree editable="top">
-                                        <field name="allowed_epreuve_ids" invisible="1"/>
-                                        <field name="test_id" invisible="1"/>
-                                        <field name="epreuve_id" domain="[('id', 'in', allowed_epreuve_ids)]"/>
                                         <field name="commentaire"/>
                                     </tree>
                                 </field>
@@ -65,6 +56,37 @@
                                 </field>
                             </page>
                         </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pia_bilan_logo_ana_form_view" model="ir.ui.view">
+            <field name="name">pia.bilan.logo.ana_form</field>
+            <field name="model">pia.bilan.ana</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="test_id"/>
+                            <field name="allowed_epreuve_ids" invisible="1"/>
+                            <field name="bilan_id" invisible="1"/>
+                            <field name="epreuve_id" domain="[('id', 'in', allowed_epreuve_ids)]"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="note_pre"/>
+                                <field name="ecart_type_pre"/>
+                            </group>
+                            <group>
+                                <field name="note"/>
+                                <field name="ecart_type"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="performance"/>
+                            <field name="commentaire"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
