@@ -21,6 +21,14 @@
                                 class="oe_stat_button" icon="fa-users">
                                 <field name="reunion_count" widget="statinfo" string="Réunions" />
                             </button>
+                            <button name="action_view_entretien" type="object"
+                                class="oe_stat_button" icon="fa-users">
+                                <field name="entretien_count" widget="statinfo" string="Entretiens extérieurs" />
+                            </button>
+                            <button name="action_view_bilan" type="object"
+                                class="oe_stat_button" icon="fa-users" groups="pia.group_pia_logo">
+                                <field name="bilan_count" widget="statinfo" string="Bilans logopédiques" groups="pia.group_pia_logo"/>
+                            </button>
                         </div>
                         <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
                         <div class="oe_title">
@@ -131,6 +139,30 @@
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
                 Créer un conseil de classe
+              </p>
+            </field>
+        </record>
+
+        <record id="action_view_entretien" model="ir.actions.act_window">
+            <field name="name">Entretiens extérieurs</field>
+            <field name="res_model">pia.entretien</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer un entretien extérieur
+              </p>
+            </field>
+        </record>
+
+        <record id="action_view_bilan" model="ir.actions.act_window">
+            <field name="name">Bilans logopédiques</field>
+            <field name="res_model">pia.bilan.logo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer un bilan logopédique
               </p>
             </field>
         </record>
