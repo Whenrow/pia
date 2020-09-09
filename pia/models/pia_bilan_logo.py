@@ -142,8 +142,8 @@ class BilanAnalyse(models.Model):
     epreuve_id = fields.Many2one('pia.bilan.test.epreuve', 'Epreuve')
     note = fields.Char('Note brute')
     note_pre = fields.Char('Note brute (année précédente)')
-    ecart_type = fields.Float('Écart-type', digits=(1,2))
-    ecart_type_pre = fields.Float('Écart-type (année précédente)', digits=(1,2))
+    ecart_type = fields.Char('Écart-type')
+    ecart_type_pre = fields.Char('Écart-type (année précédente)')
     commentaire = fields.Text('Commentaire')
     performance = fields.Selection([
         ('ex', 'Performance excellente'),

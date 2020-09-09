@@ -130,6 +130,12 @@
                                     <th>
                                         <span>Épreuve</span>
                                     </th>
+                                    <th t-if="doc.bilan_type[:3] == 'evo'">
+                                        <span>Note brute (bilan précédent)</span>
+                                    </th>
+                                    <th t-if="doc.bilan_type[:3] == 'evo'">
+                                        <span>Écart-type (bilan précédent)</span>
+                                    </th>
                                     <th>
                                         <span>Note brute</span>
                                     </th>
@@ -142,9 +148,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr t-foreach="doc.ana_ids" t-as="table_line">
+                                <tr t-foreach="doc.ana_ids.filtered('epreuve_id')" t-as="table_line">
                                     <td>
                                         <span t-field="table_line.epreuve_id.name"/>
+                                    </td>
+                                    <td t-if="doc.bilan_type[:3] == 'evo'">
+                                        <span t-field="table_line.note_pre"/>
+                                    </td>
+                                    <td t-if="doc.bilan_type[:3] == 'evo'">
+                                        <span t-field="table_line.ecart_type_pre"/>
+                                        <span>&#x03C3;</span>
                                     </td>
                                     <td>
                                         <span t-field="table_line.note"/>
