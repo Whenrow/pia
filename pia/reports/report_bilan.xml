@@ -25,6 +25,10 @@
                                     <span t-field="doc.eleve_id.name"/>
                                 </p>
                                 <p>
+                                    <strong>Date de naissance: </strong>
+                                    <span t-field="doc.date_naissance"/>
+                                </p>
+                                <p>
                                     <strong>École: </strong>
                                     <span t-field="doc.implantation_id.name"/>
                                 </p>
