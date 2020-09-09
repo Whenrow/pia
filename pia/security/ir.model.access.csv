@@ -15,8 +15,16 @@ access_pia_intervenant_user,pia.intervenant.user,model_pia_intervenant,pia.group
 access_pia_objectif_user,pia.objectif.user,model_pia_objectif,pia.group_pia_user,1,1,1,0
 access_pia_trouble_user,pia.trouble.user,model_pia_trouble,pia.group_pia_user,1,1,1,0
 access_pia_reunion_user,pia.reunion.user,model_pia_reunion_parents,pia.group_pia_user,1,1,1,0
-access_pia_synthese_logo,pia.synthese.user,model_pia_synthese_logo,pia.group_pia_user,1,1,1,0
+access_pia_synthese_logo,pia.synthese.user,model_pia_synthese_logo,pia.group_pia_user,1,0,0,0
 access_pia_entretien,pia.entretien.user,model_pia_entretien,pia.group_pia_user,1,1,1,0
+access_pia_bilan_logo_user,pia.bilan.logo.user,model_pia_bilan_logo,pia.group_pia_user,1,0,0,0
+access_pia_bilan_test_user,pia.bilan.test.user,model_pia_bilan_test,pia.group_pia_user,1,0,0,0
+access_pia_bilan_etalonnage_user,pia.bilan.etalonnage.user,model_pia_bilan_etalonnage,pia.group_pia_user,1,0,0,0
+access_pia_bilan_ana_quanti_user,pia.bilan.ana.quanti.user,model_pia_bilan_ana_quanti,pia.group_pia_user,1,0,0,0
+access_pia_bilan_ana_quali_user,pia.bilan.ana.quali.user,model_pia_bilan_ana_quali,pia.group_pia_user,1,0,0,0
+access_pia_bilan_ana_user,pia.bilan.ana.user,model_pia_bilan_ana,pia.group_pia_user,1,0,0,0
+access_pia_bilan_test_epreuve_user,pia.bilan.test.epreuve.user,model_pia_bilan_test_epreuve,pia.group_pia_user,1,0,0,0
+access_pia_synthese_logo_logo,pia.synthese.logo,model_pia_synthese_logo,pia.group_pia_logo,1,1,1,0
 access_pia_bilan_logo_logo,pia.bilan.logo.logo,model_pia_bilan_logo,pia.group_pia_logo,1,1,1,0
 access_pia_bilan_test_logo,pia.bilan.test.logo,model_pia_bilan_test,pia.group_pia_logo,1,1,1,0
 access_pia_bilan_etalonnage_logo,pia.bilan.etalonnage.logo,model_pia_bilan_etalonnage,pia.group_pia_logo,1,1,1,0
