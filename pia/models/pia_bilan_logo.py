@@ -114,7 +114,7 @@ class BilanAnalyseQuantitatif(models.Model):
         ('d', 'Déficitaire')
     ], string='Performance')
 
-
+# TODO: Remove
 class BilanAnalyseQualitatif(models.Model):
     _name = 'pia.bilan.ana.quali'
     _description = 'Analyse qualitatif d\'un bilan logopédique'
@@ -149,6 +149,7 @@ class BilanAnalyse(models.Model):
         ('ex', 'Performance excellente'),
         ('tb', 'Très bonne performance'),
         ('mfo', 'Niveau moyen fort'),
+        ('m', 'Niveau moyen'),
         ('mfa', 'Niveau moyen faible'),
         ('f', 'Faible'),
         ('d', 'Déficitaire')

@@ -45,7 +45,7 @@
             <field name="view_mode">tree,form</field>
         </record>
         <record model="ir.actions.act_window" id="pia.action_window_bilan">
-            <field name="name">Bilans logopédique</field>
+            <field name="name">Bilans logopédiques</field>
             <field name="res_model">pia.bilan.logo</field>
             <field name="view_mode">tree,form</field>
         </record>
