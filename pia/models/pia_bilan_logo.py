@@ -135,6 +135,7 @@ class BilanAnalyseQualitatif(models.Model):
 class BilanAnalyse(models.Model):
     _name = 'pia.bilan.ana'
     _description = 'Analyse d\'un bilan logopédique'
+    _order = 'test_id,epreuve_id'
 
     bilan_id = fields.Many2one('pia.bilan.logo', 'Bilan')
     test_id = fields.Many2one(related='epreuve_id.test_id')
