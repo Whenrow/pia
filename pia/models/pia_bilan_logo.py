@@ -70,7 +70,7 @@ class BilanLogo(models.Model):
     amenagement_ids = fields.Many2many('pia.amenagement', string='AR')
 
     conclusion = fields.Text('Conclusion')
-    projet = fields.Text('Project thérapeutique')
+    projet = fields.Text('Projet thérapeutique')
 
 class BilanTest(models.Model):
     _name = 'pia.bilan.test'
