@@ -111,7 +111,8 @@ class BilanAnalyseQuantitatif(models.Model):
         ('mfo', 'Niveau moyen fort'),
         ('mfa', 'Niveau moyen faible'),
         ('f', 'Faible'),
-        ('d', 'Déficitaire')
+        ('d', 'Déficitaire'),
+        ('tf', 'Très faible')
     ], string='Performance')
 
 # TODO: Remove
