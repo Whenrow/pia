@@ -12,21 +12,21 @@
                                 class="oe_stat_button" icon="fa-users" context="{'search_default_groupby_annee': 1}">
                                 <field name="conseil_count" widget="statinfo" string="CdC" />
                             </button>
-                            <button name="action_view_synthese" type="object"
+                            <button name="action_view_bilan" type="object"
                                 class="oe_stat_button" icon="fa-users">
-                                <field name="synthese_count" widget="statinfo" string="Synthèses" />
+                                <field name="bilan_count" widget="statinfo" string="Bilans logopédiques"/>
                             </button>
                             <button name="action_view_reunion" type="object"
                                 class="oe_stat_button" icon="fa-users">
                                 <field name="reunion_count" widget="statinfo" string="Réunions" />
                             </button>
+                            <button name="action_view_synthese" type="object"
+                                class="oe_stat_button" icon="fa-users">
+                                <field name="synthese_count" widget="statinfo" string="Synthèses" />
+                            </button>
                             <button name="action_view_entretien" type="object"
                                 class="oe_stat_button" icon="fa-users">
-                                <field name="entretien_count" widget="statinfo" string="Entretiens extérieurs" />
-                            </button>
-                            <button name="action_view_bilan" type="object"
-                                class="oe_stat_button" icon="fa-users">
-                                <field name="bilan_count" widget="statinfo" string="Bilans logopédiques"/>
+                                <field name="entretien_count" widget="statinfo" string="Informations complémentaires" />
                             </button>
                         </div>
                         <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
