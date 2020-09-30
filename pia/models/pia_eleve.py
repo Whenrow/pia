@@ -61,6 +61,9 @@ class Eleve(models.Model):
        ('p6', 'P6'),
        ('p6b', 'P6 bis')
     ], string='Année d\'étude')
+    insti_id = fields.Many2one('pia.intervenant','Instit intégration')
+    logo_id = fields.Many2one('pia.intervenant','Logo intégration')
+    coordi_id = fields.Many2one('pia.intervenant','Coordinateur intégration')
 
     def _compute_conseil_count(self):
         for eleve in self:
