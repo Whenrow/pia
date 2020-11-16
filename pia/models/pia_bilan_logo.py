@@ -50,10 +50,10 @@ class BilanLogo(models.Model):
     bilan_type = fields.Selection([
         ('init_oral', 'initial en langage oral'),
         ('init_ecrit', 'initial en langage écrit'),
-        ('init_math', 'initial en mathématique'),
+        ('init_math', 'initial en mathématiques'),
         ('evo_oral', 'd\'évolution en langage oral'),
         ('evo_ecrit', 'd\'évolution en langage écrit'),
-        ('evo_math', 'd\'évolution en mathématique')
+        ('evo_math', 'd\'évolution en mathématiques')
     ], string='Bilan')
 
     test_ids = fields.Many2many('pia.bilan.test', string='Test(s) utilisé(s)')
