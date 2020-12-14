@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pari_table_form_view" model="ir.ui.view">
+            <field name="name">pari.table.ronde.form</field>
+            <field name="model">pari.table.ronde</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="eleve_id" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="intervenant_ids"/>
+                            <field name="compte_rendu"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pari_observation_view" model="ir.ui.view">
+            <field name="name">pari.observation.form</field>
+            <field name="model">pari.observation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="eleve_id" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="observateur_id"/>
+                            <field name="compte_rendu"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pari_protocole_form_view" model="ir.ui.view">
+            <field name="name">pari.protocole.form</field>
+            <field name="model">pari.protocole.ar</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="date_envoi"/>
+                                <field name="eleve_id" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="AR actuels">
+                                <field name="amenagement_actuels_ids">
+                                    <tree>
+                                        <field name="trouble"/>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="commentaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="AR proposé par le PARI">
+                                <field name="amenagement_pari_ids">
+                                    <tree>
+                                        <field name="trouble"/>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="commentaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="AR décidés">
+                                <field name="amenagement_finaux_ids">
+                                    <tree>
+                                        <field name="trouble"/>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="commentaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pari_dac_view" model="ir.ui.view">
+            <field name="name">pari.dac.form</field>
+            <field name="model">pari.dac</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="eleve_id" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="observation"/>
+                            <field name="autre"/>
+                            <field name="ressource"/>
+                            <field name="besoin"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pari_table_tree_view" model="ir.ui.view">
+            <field name="name">pari.table.ronde.tree</field>
+            <field name="model">pari.table.ronde</field>
+            <field name="arch" type="xml">
+                <tree string="Tables rondes">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="eleve_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pari_observation_tree_view" model="ir.ui.view">
+            <field name="name">pari.observation.tree</field>
+            <field name="model">pari.observation</field>
+            <field name="arch" type="xml">
+                <tree string="Observations">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="eleve_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="pari_protocole_tree_view" model="ir.ui.view">
+            <field name="name">pari.protocole.tree</field>
+            <field name="model">pari.protocole.ar</field>
+            <field name="arch" type="xml">
+                <tree string="Protocoles AR">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="eleve_id"/>
+                </tree>
+            </field>
+        </record><record id="pari_dac_tree_view" model="ir.ui.view">
+            <field name="name">pari.dac.tree</field>
+            <field name="model">pari.dac</field>
+            <field name="arch" type="xml">
+                <tree string="DAC">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="eleve_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

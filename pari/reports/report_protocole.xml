@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pari.report_protocole">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">Demande introduite le :</div>
+                                <div class="col-4"/>
+                                <div class="col-4">Par :</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">Auprès de l'établissement :</div>
+                                <div class="col-3" t-field="doc.implantation_id.name"/>
+                            </div>
+                        </div>
+
+                        <h4>Identification de l'élève</h4>
+                        <div class="container">
+                            <div class="row">
+                                <div>Nom et prénom de l'élève : </div>
+                                <div t-field="doc.name"/>
+                            </div>
+                            <div class="row">
+                                <div>Date de naissance : </div>
+                                <div t-field="doc.date_naissance"/>
+                            </div>
+                            <div class="row">
+                                <div>Année d'étude</div>
+                                <div t-field="doc.annee_etude"/>
+                            </div>
+                        </div>
+
+                        <h4>Identification des tuteurs : </h4>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Nom et prénom : </div>
+                                    <div class="col-auto" t-field="doc.nom_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Nom et prénom : </div>
+                                    <div class="col-auto" t-field="doc.nom_tuteur_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Adresse : </div>
+                                    <div class="col-auto" t-field="doc.adresse_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Adresse : </div>
+                                    <div class="col-auto" t-field="doc.adresse_tuteur_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Téléphone</div>
+                                    <div class="col-auto" t-field="doc.telephone_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Téléphone</div>
+                                    <div class="col-auto" t-field="doc.telephone_tuteur_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Email : </div>
+                                    <div class="col-auto" t-field="doc.email_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Email : </div>
+                                    <div class="col-auto" t-field="doc.email_tuteur_2"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Besoin(s) spécifique(s) reconnu(s) :</h4>
+                        <div class="container">
+                            <div class="row">
+                                <div t-field="doc.diagnostic"/>
+                            </div>
+                        </div>
+
+                        <h4>Aménagements raisonnables</h4>
+                        <h5>AR actuels</h5>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.protocole_ids.amenagement_actuels_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>AR proposés par le PARI</h5>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.protocole_ids.amenagement_pari_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>AR décidés</h5>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.protocole_ids.amenagement_finaux_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Partenariats</h4>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Logopède : </div>
+                                    <div class="col-auto" t-field="doc.logo"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Ergothérapeute : </div>
+                                    <div class="col-auto" t-field="doc.ergo"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Kinésithérapeute : </div>
+                                    <div class="col-auto" t-field="doc.kine"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Psy : </div>
+                                    <div class="col-auto" t-field="doc.psy"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Neuropsy : </div>
+                                    <div class="col-auto" t-field="doc.neuropsy"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Pédopsy : </div>
+                                    <div class="col-auto" t-field="doc.pedopsy"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Orthoptiste : </div>
+                                    <div class="col-auto" t-field="doc.orthoptiste"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Neuropédiatre : </div>
+                                    <div class="col-auto" t-field="doc.neuroped"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Orthopédagoque : </div>
+                                    <div class="col-auto" t-field="doc.orthopeda"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Kinésiologue : </div>
+                                    <div class="col-auto" t-field="doc.kinesio"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Ostéopathe : </div>
+                                    <div class="col-auto" t-field="doc.orthopeda"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Autre : </div>
+                                    <div class="col-auto" t-field="doc.autre"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Signatures</h4>
+                        <div class="row" style="margin-bottom: 35px;">
+                            <div class="col-6 row">
+                                <div class="col-auto"><strong>Élève</strong></div>
+                            </div>
+                            <div class="col-6 row">
+                                <div class="col-auto"><strong>Tuteurs</strong></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 35px;">
+                            <div class="col-6 row">
+                                <div class="col-auto"><strong>Direction</strong></div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-bottom: 35px;">Information au CPMS le :</h4>
+
+                        <h4>DAC</h4>
+                        <h6>Observations préalables au CdC :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.dac_ids.observation"/>
+                        </div>
+                        <h6>Informations relayées au CdC :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.dac_ids.autre"/>
+                        </div>
+                        <h6>Ressources :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.dac_ids.ressource"/>
+                        </div>
+                        <h6>Besoins :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.dac_ids.besoin"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

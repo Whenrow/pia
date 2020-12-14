@@ -49,13 +49,13 @@
                                 </div>
                                 <field name="langue_maison"/>
                             </group>
-                            <group>
+                            <group id='suivi'>
                                 <field name="insti_id" domain="[('fonction', '=', 'instit')]"/>
                                 <field name="logo_id" domain="[('fonction', '=', 'logo')]"/>
                                 <field name="coordi_id" domain="[('fonction', '=', 'coordinateur')]"/>
                             </group>
                         </group>
-                        <group>
+                        <group id='tutorat'>
                             <group string='Tuteur 1'>
                                 <field name="nom_tuteur_1"/>
                                 <field name="statut_tuteur_1"/>

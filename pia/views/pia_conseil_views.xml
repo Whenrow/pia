@@ -33,10 +33,11 @@
                                 </field>
                             </page>
                             <page string="Observations">
-                                <group string="observations">
+                                <group>
+                                    <field name="observation"/>
+                                    <field name="autre"/>
                                     <field name="ressource"/>
                                     <field name="besoin"/>
-                                    <field name="autre"/>
                                 </group>
                             </page>
                             <page string="Objectifs">
@@ -69,7 +70,7 @@
                                     <field name="a_faire"/>
                                 </group>
                             </page>
-                            <page string="Entretiens ext.">
+                            <page string="Retour de CdC">
                                 <group>
                                     <field name="entretien"/>
                                 </group>

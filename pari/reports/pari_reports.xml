@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <report
+            string="Protocole"
+            id="action_report_protocole"
+            model="pia.eleve"
+            report_type="qweb-pdf"
+            name="pari.report_protocole"
+            file="pari.report_protocole"
+            print_report_name="'PROTOCOLE%s' % object.name"
+        />
+    </data>
+</odoo>

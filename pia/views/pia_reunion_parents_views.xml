@@ -47,6 +47,7 @@
             <field name="arch" type="xml">
                 <tree string="Conseil">
                     <field name="name" string="Nom"/>
+                    <field name="date"/>
                     <field name="eleve_id"/>
                 </tree>
             </field>

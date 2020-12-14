@@ -24,7 +24,6 @@
     'data': [
         'security/pia_security.xml',
         'security/ir.model.access.csv',
-        'views/menus.xml',
         'reports/pia_reports.xml',
         'reports/report_pia.xml',
         'reports/report_pv.xml',
@@ -42,5 +41,6 @@
         'views/pia_synthese_logo_views.xml',
         'views/pia_entretien_views.xml',
         'views/pia_bilan_logo_views.xml',
+        'views/menus.xml',
     ],
 }

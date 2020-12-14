@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pari_eleve_form_view" model="ir.ui.view">
+            <field name="name">pari.eleve.form</field>
+            <field name="model">pia.eleve</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="pia.pia_eleve_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="before">
+                    <field name='suivi' invisible="1"/>
+                    <div class="oe_button_box">
+                        <button name="action_view_table" type="object"
+                            class="oe_stat_button" icon="fa-users" string="Table ronde"/>
+                        <button name="action_view_observation" type="object"
+                            class="oe_stat_button" icon="fa-users" string="Observations"/>
+                        <button name="action_view_protocole" type="object"
+                            class="oe_stat_button" icon="fa-users" string="Protocoles AR"/>
+                        <button name="action_view_dac" type="object"
+                            class="oe_stat_button" icon="fa-users" string="DAC"/>
+                        <button name="action_view_entretien" type="object"
+                            class="oe_stat_button" icon="fa-users" string="Entretiens"/>
+                    </div>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('suivi', '=', 'pari')]}</attribute>
+                </xpath>
+                <xpath expr="//group[@id='tutorat']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='situation_psycho_sociale']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='bilan_medical']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='diagnostic']" position="attributes">
+                    <attribute name="string">Diagnostic / Besoins spécifiques reconnus</attribute>
+                </xpath>
+                <xpath expr="//group[@id='suivi']" position="replace">
+                    <group>
+                        <field name='suivi_1'/>
+                        <field name='suivi_2'/>
+                    </group>
+                </xpath>
+                <xpath expr="//sheet" position="inside">
+                    <notebook>
+                        <page string="Tuteurs">
+                            <group>
+                                <group string='Tuteur 1'>
+                                    <field name="nom_tuteur_1"/>
+                                    <field name="statut_tuteur_1"/>
+                                    <field name="adresse_tuteur_1"/>
+                                    <field name="telephone_tuteur_1"/>
+                                    <field name="email_tuteur_1"/>
+                                </group>
+                                <group string='Tuteur 2'>
+                                    <field name="nom_tuteur_2"/>
+                                    <field name="statut_tuteur_2"/>
+                                    <field name="adresse_tuteur_2"/>
+                                    <field name="telephone_tuteur_2"/>
+                                    <field name="email_tuteur_2"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Partenariats">
+                            <group>
+                                <group>
+                                    <field name="logo"/>
+                                    <field name="ergo"/>
+                                    <field name="kine"/>
+                                    <field name="psy"/>
+                                    <field name="neuropsy"/>
+                                    <field name="pedopsy"/>
+                                </group>
+                                <group>
+                                    <field name="orthoptiste"/>
+                                    <field name="neuroped"/>
+                                    <field name="orthopeda"/>
+                                    <field name="kinesio"/>
+                                    <field name="osteo"/>
+                                    <field name="autre"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+        <record id="action_view_table" model="ir.actions.act_window">
+            <field name="name">Table ronde</field>
+            <field name="res_model">pari.table.ronde</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer une table ronde
+              </p>
+            </field>
+        </record>
+
+        <record id="action_view_observation" model="ir.actions.act_window">
+            <field name="name">Observations</field>
+            <field name="res_model">pari.observation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer une observation
+              </p>
+            </field>
+        </record>
+
+        <record id="action_view_protocole" model="ir.actions.act_window">
+            <field name="name">Protocoles AR</field>
+            <field name="res_model">pari.protocole.ar</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer un protocole d'aménagements raisonable
+              </p>
+            </field>
+        </record>
+
+        <record id="action_view_dac" model="ir.actions.act_window">
+            <field name="name">Dispositif d'acompagnement</field>
+            <field name="res_model">pari.dac</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Créer un dispositif d'acompagnement d'élève
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -65,6 +65,11 @@ class Eleve(models.Model):
     logo_id = fields.Many2one('pia.intervenant','Logo intégration')
     coordi_id = fields.Many2one('pia.intervenant','Coordinateur intégration')
 
+    suivi = fields.Selection([
+        ('integ', 'Intégration'),
+        ('pari', 'PARI')
+    ], 'Type de suivi')
+
     def _compute_conseil_count(self):
         for eleve in self:
             synthese_count = self.env['pia.synthese.logo'].sudo().sudo().search_count([

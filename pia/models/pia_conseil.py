@@ -34,10 +34,11 @@ class Conseil(models.Model):
     # Observations
     ressource = fields.Text('Ressources')
     besoin = fields.Text('Besoins')
-    autre = fields.Text('Autres')
+    autre = fields.Text('Informations relayées au CdC')
+    observation = fields.Text('Observations préalables au CdC')
 
     a_faire = fields.Text('A faire')
-    entretien = fields.Text('Entretiens extérieurs')
+    entretien = fields.Text('Retour de CdC')
 
     @api.onchange('eleve_id')
     def _onchange_eleve_id(self):

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Intervenant(models.Model):
@@ -46,6 +46,7 @@ class Users(models.Model):
     intervenant_ids = fields.One2many('pia.intervenant', 'user_id')
     allowed_implantation_ids = fields.One2many('pia.implantation', compute="_compute_allowed_implantation_ids")
 
+    @api.depends('groups_id')
     def _compute_allowed_implantation_ids(self):
         for user in self:
             if user.intervenant_ids or user.has_group('pia.group_pia_manager'):
@@ -54,4 +55,4 @@ class Users(models.Model):
                 else:
                     user.allowed_implantation_ids = self.env['pia.implantation'].search([]).ids
             else:
-                user.allowed_implantation_ids = False
+                user.allowed_implantation_ids = []
