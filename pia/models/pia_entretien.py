@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class EntretienExterieur(models.Model):
     _name = 'pia.entretien'
     _description = 'Informations complémentaires'
+    _order = 'date desc'
 
     name = fields.Char(default='Nouveau')
     date = fields.Date('Date', default=fields.Date.today)

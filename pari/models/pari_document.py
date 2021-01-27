@@ -18,6 +18,7 @@ class TableRonde(models.Model):
         'intervenant_id',
         'table_id'
     )
+    intervenant_autres = fields.Text('Autres intervenants')
     compte_rendu = fields.Text('Compte rendu')
 
 
@@ -58,8 +59,11 @@ class ProtocoleAR(models.Model):
     autre = fields.Text(related='eleve_id.autre')
 
     amenagement_actuels_ids = fields.Many2many('pia.amenagement', 'pia_amenagement_pari_protocole_actuel_rel', 'amenagement_id', 'conseil_id')
+    amenagement_actuels_autre = fields.Text('Autres aménagements actuels')
     amenagement_pari_ids = fields.Many2many('pia.amenagement', 'pia_amenagement_pari_protocole_pari_rel', 'amenagement_id', 'conseil_id')
+    amenagement_pari_autre = fields.Text('Autres aménagements PARI')
     amenagement_finaux_ids = fields.Many2many('pia.amenagement', 'pia_amenagement_pari_protocole_finaux_rel', 'amenagement_id', 'conseil_id')
+    amenagement_finaux_autre = fields.Text('Autres aménagements décidés')
 
 
 class Dac(models.Model):

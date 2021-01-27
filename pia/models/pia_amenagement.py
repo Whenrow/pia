@@ -6,6 +6,7 @@ from odoo import models, fields
 class Amenagement(models.Model):
     _name = 'pia.amenagement'
     _description = 'Amènagements raisonable'
+    _order = 'trouble'
 
     name = fields.Char(required=True, string="Aménagement")
     trouble = fields.Selection([

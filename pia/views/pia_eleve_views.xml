@@ -115,7 +115,7 @@
             <field name="res_model">pia.synthese.logo</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
+        <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
                 Créer une synthèse logo
               </p>
