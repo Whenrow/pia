@@ -75,7 +75,7 @@ class Dac(models.Model):
     eleve_id = fields.Many2one('pia.eleve', 'Elève')
 
     ressource = fields.Text('Ressources')
-    besoin = fields.Text('Besoins')
+    besoin = fields.Text('Dispositif de différenciation et d’accompagnement personnalisé de l’élève à besoins spécifiques')
     autre = fields.Text('Informations relayées au CdC')
     observation = fields.Text('Observations préalables au CdC')
 

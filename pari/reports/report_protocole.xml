@@ -6,13 +6,21 @@
                 <t t-call="web.external_layout">
                     <t t-foreach="docs" t-as="doc">
                         <div class="container">
+                            <header>
+                                <h3>
+                                    Modèle de protocole/dispositif de différenciation et d’accompagnement personnalisé de l’élève à besoins spécifiques
+                                </h3>
+                                <h6>
+                                    En vertu des articles 1.7.8.1 et suivants du décret du 3 mai 2019 portant les livres 1er et 2 du Code de l'enseignement fondamental et de l'enseignement secondaire, et mettant en place le tronc commun- AMENAGEMENTS RAISONNABLES
+                                </h6>
+                            </header>
                             <div class="row">
                                 <div class="col-4">Demande introduite le :</div>
                                 <div class="col-4"/>
                                 <div class="col-4">Par :</div>
                             </div>
                             <div class="row">
-                                <div class="col-3">Auprès de l'établissement :</div>
+                                <div class="col-3">Auprès de l'établissement</div>
                                 <div class="col-3" t-field="doc.implantation_id.name"/>
                             </div>
                         </div>
@@ -28,7 +36,7 @@
                                 <div t-field="doc.date_naissance"/>
                             </div>
                             <div class="row">
-                                <div>Année d'étude</div>
+                                <div>Année d'étude : </div>
                                 <div t-field="doc.annee_etude"/>
                             </div>
                         </div>
