@@ -10,6 +10,7 @@ class Eleve(models.Model):
     _order = 'annee_etude, name'
 
     name = fields.Char()
+    active = fields.Boolean('Active', default=True)
     implantation_id = fields.Many2one('pia.implantation', 'Implantation')
     date_naissance = fields.Date('Date de naissance')
     rue = fields.Char()

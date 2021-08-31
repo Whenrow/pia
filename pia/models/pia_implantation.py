@@ -9,6 +9,7 @@ class Implantation(models.Model):
     _order = 'name'
 
     name = fields.Char(required=True)
+    active = fields.Boolean('Active', default=True)
     fase = fields.Char('FASE', required=True)
     reseau = fields.Selection([
         ('libre', 'Libre'),

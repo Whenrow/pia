@@ -9,6 +9,7 @@ class Intervenant(models.Model):
     _order = 'name'
 
     name = fields.Char(required=True, string='Noms')
+    active = fields.Boolean('Active', default=True)
     fonction = fields.Selection([
         ('instit', 'Instituteur/trice intégration'),
         ('logo', 'Logopède intégration'),
