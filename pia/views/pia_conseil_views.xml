@@ -16,7 +16,7 @@
                             <group>
                                 <field name="date"/>
                                 <field name="eleve_id"/>
-                                <field name="implantation_id"/>
+                                <field name="implantation_id" options='{"no_create": True}'/>
                                 <field name="trouble_ids" widget="many2many_tags"/>
                             </group>
                             <group>

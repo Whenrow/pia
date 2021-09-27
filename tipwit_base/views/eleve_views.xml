@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="base_eleve_form_view" model="ir.ui.view">
+            <field name="name">tipwit_base.eleve.form</field>
+            <field name="model">tipwit_base.eleve</field>
+            <field name="arch" type="xml">
+                <form string="Elèves">
+                    <sheet string="Elèves">
+                        <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="annee_etude"/>
+                                <field name="implantation_id" option="{'no_create': True}"/>
+                                <field name="date_naissance"/>
+                                <span class="o_form_label" name="address_name">
+                                    <b>Adresse</b>
+                                </span>
+                                <div class="o_address_format">
+                                    <field name="rue" placeholder="Rue..." class="o_address_street"/>
+                                    <field name="ville" placeholder="Ville" class="o_address_city"/>
+                                </div>
+                                <field name="langue_maison"/>
+                            </group>
+                            <group id='suivi'>
+                                <field name="insti_id" domain="[('fonction', '=', 'instit')]"/>
+                                <field name="logo_id" domain="[('fonction', '=', 'logo')]"/>
+                                <field name="coordi_id" domain="[('fonction', '=', 'coordinateur')]"/>
+                            </group>
+                        </group>
+                        <group id='tutorat'>
+                            <group string='Tuteur 1'>
+                                <field name="nom_tuteur_1" string="Nom"/>
+                                <field name="statut_tuteur_1" string="Statut"/>
+                                <field name="telephone_tuteur_1" string="Téléphone"/>
+                                <field name="email_tuteur_1" string="Email"/>
+                            </group>
+                            <group string='Tuteur 2'>
+                                <field name="nom_tuteur_2" string="Nom"/>
+                                <field name="statut_tuteur_2" string="Statut"/>
+                                <field name="telephone_tuteur_2" string="Téléphone"/>
+                                <field name="email_tuteur_2" string="Email"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="parcours"/>
+                            <field name="bilan_medical"/>
+                            <field name="situation_psycho_sociale"/>
+                            <field name="diagnostic"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter" modifiers="{}">
+                		<field name="message_follower_ids" widget="mail_followers" modifiers="{}"/>
+                		<field name="activity_ids" widget="mail_activity" modifiers="{}"/>
+                		<field name="message_ids" widget="mail_thread" modifiers="{}" options="{'display_log_button': True}"/>
+                	</div>
+                </form>
+            </field>
+        </record>
+
+        <record id="base_eleve_tree_view" model="ir.ui.view">
+            <field name="name">tipwit_base.eleve.tree</field>
+            <field name="model">tipwit_base.eleve</field>
+            <field name="arch" type="xml">
+                <tree string="Implantations">
+                    <field name="name"/>
+                    <field name="annee_etude"/>
+                    <field name="implantation_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="base_eleve_search_view" model="ir.ui.view">
+            <field name="name">tipwit_base.eleve.search</field>
+            <field name="model">tipwit_base.eleve</field>
+            <field name="arch" type="xml">
+                <search string="Implantations">
+                    <field name="name"/>
+                    <group expand="0" string="Group By">
+                        <filter string="École" name="groupby_implantation" domain="[]" context="{'group_by': 'implantation_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="tipwit_base.action_window_eleve">
+            <field name="name">Elèves</field>
+            <field name="res_model">tipwit_base.eleve</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('suivi', '=', 'integ')]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('base_eleve_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('base_eleve_form_view')})]"/>
+            <field name="context">{'search_default_groupby_implantation': 1, 'default_suivi': 'integ'}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer une nouvelle fiche élève
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

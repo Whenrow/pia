@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="pia_implantation_form_view" model="ir.ui.view">
-            <field name="name">pia.implantation.form</field>
-            <field name="model">tip</field>
+        <record id="base_implantation_form_view" model="ir.ui.view">
+            <field name="name">tipwit_base.implantation.form</field>
+            <field name="model">tipwit_base.implantation</field>
             <field name="arch" type="xml">
                 <form string="Implantations">
                     <sheet string="Implantations">
@@ -29,15 +29,20 @@
             </field>
         </record>
 
-        <record id="pia_implantation_tree_view" model="ir.ui.view">
-            <field name="name">pia.implantation.tree</field>
-            <field name="model">pia.implantation</field>
+        <record id="base_implantation_tree_view" model="ir.ui.view">
+            <field name="name">tipwit_base.implantation.tree</field>
+            <field name="model">tipwit_base.implantation</field>
             <field name="arch" type="xml">
                 <tree string="Implantations">
                     <field name="name"/>
                     <field name="email"/>
                 </tree>
             </field>
+        </record>
+        <record model="ir.actions.act_window" id="tipwit_base.action_window_implantation">
+            <field name="name">Implantations</field>
+            <field name="res_model">tipwit_base.implantation</field>
+            <field name="view_mode">tree,form</field>
         </record>
     </data>
 </odoo>

@@ -4,30 +4,33 @@ from odoo import models, fields
 
 
 class Eleve(models.Model):
-    _inherit = 'pia.eleve'
+    _inherit = 'tipwit_base.eleve'
 
-    suivi_1 = fields.Many2one('pia.intervenant','Suivi PARI 1')
-    suivi_2 = fields.Many2one('pia.intervenant','Suivi PARI 2')
+    suivi = fields.Selection(selection_add=[
+        ('pari', 'PARI'),
+    ])
+    suivi_1 = fields.Many2one('res.partner','Suivi PARI 1')
+    suivi_2 = fields.Many2one('res.partner','Suivi PARI 2')
 
     #Partenariats
-    logo = fields.Many2one('pia.intervenant','Logopède')
-    ergo = fields.Many2one('pia.intervenant','Ergothérapeute')
-    kine = fields.Many2one('pia.intervenant','Kinésithérapeute')
-    psy = fields.Many2one('pia.intervenant','Psy')
-    neuropsy = fields.Many2one('pia.intervenant','Neuropsy')
-    pedopsy = fields.Many2one('pia.intervenant','Pédopsy')
-    orthoptiste = fields.Many2one('pia.intervenant','Orthoptiste')
-    neuroped = fields.Many2one('pia.intervenant','Neuropédiatre')
-    orthopeda = fields.Many2one('pia.intervenant','Orthopédagoque')
-    kinesio = fields.Many2one('pia.intervenant','Kinésiologue')
-    osteo = fields.Many2one('pia.intervenant','Ostéopathe')
+    logo = fields.Many2one('res.partner','Logopède')
+    ergo = fields.Many2one('res.partner','Ergothérapeute')
+    kine = fields.Many2one('res.partner','Kinésithérapeute')
+    psy = fields.Many2one('res.partner','Psy')
+    neuropsy = fields.Many2one('res.partner','Neuropsy')
+    pedopsy = fields.Many2one('res.partner','Pédopsy')
+    orthoptiste = fields.Many2one('res.partner','Orthoptiste')
+    neuroped = fields.Many2one('res.partner','Neuropédiatre')
+    orthopeda = fields.Many2one('res.partner','Orthopédagoque')
+    kinesio = fields.Many2one('res.partner','Kinésiologue')
+    osteo = fields.Many2one('res.partner','Ostéopathe')
     autre = fields.Text('Autre')
 
     protocole_ids = fields.One2many('pari.protocole.ar', 'eleve_id')
     dac_ids = fields.One2many('pari.dac', 'eleve_id')
 
-    adresse_tuteur_1 = fields.Char('Adresse')
-    adresse_tuteur_2 = fields.Char('Adresse')
+    adresse_tuteur_1 = fields.Char()
+    adresse_tuteur_2 = fields.Char()
 
     def action_view_table(self):
         self.ensure_one()

@@ -28,7 +28,7 @@ class BilanLogo(models.Model):
 
     name = fields.Char(related='eleve_id.name')
     date = fields.Char('Date', default=_get_default_date)
-    eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
     date_naissance = fields.Date(related='eleve_id.date_naissance')
     implantation_id = fields.Many2one(related='eleve_id.implantation_id',string='Implantation')
     annee_scolaire = fields.Selection([

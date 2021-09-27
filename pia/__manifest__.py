@@ -11,14 +11,16 @@
         ainsi que les archive internes de l'école
         """,
     'author': "William Henrotin",
-    'website': "http://eps-saintberthuin.be",
+    'website': "http://dodys.be",
     'sequence': 1,
+    'application': True,
+    'installable': True,
 
     'category': 'Enseignement',
     'version': '1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail'],
+    'depends': ['tipwit_base'],
 
     # always loaded
     'data': [
@@ -32,15 +34,13 @@
         'reports/report_entretien.xml',
         'reports/report_bilan.xml',
         'views/pia_eleve_views.xml',
-        'views/pia_intervenant_views.xml',
-        'views/pia_implantation_views.xml',
         'views/pia_conseil_views.xml',
         'views/pia_reunion_parents_views.xml',
-        'views/pia_amenagement_views.xml',
         'views/pia_objectif_views.xml',
         'views/pia_synthese_logo_views.xml',
         'views/pia_entretien_views.xml',
         'views/pia_bilan_logo_views.xml',
         'views/menus.xml',
     ],
+    'license': 'LGPL-3',
 }

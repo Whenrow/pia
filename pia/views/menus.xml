@@ -2,27 +2,6 @@
 <odoo>
     <data>
         <!-- actions opening views on models -->
-        <record model="ir.actions.act_window" id="pia.action_window_implantation">
-            <field name="name">Implantations</field>
-            <field name="res_model">pia.implantation</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-        <record model="ir.actions.act_window" id="pia.action_window_eleve">
-            <field name="name">Elèves</field>
-            <field name="res_model">pia.eleve</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">[('suivi', '=', 'integ')]</field>
-            <field name="view_ids" eval="[(5, 0, 0),
-                (0, 0, {'view_mode': 'tree', 'view_id': ref('pia_eleve_tree_view')}),
-                (0, 0, {'view_mode': 'form', 'view_id': ref('pia_eleve_form_view')})]"/>
-            <field name="context">{'search_default_groupby_implantation': 1, 'default_suivi': 'integ'}</field>
-        </record>
-        <record model="ir.actions.act_window" id="pia.action_window_intervenant">
-            <field name="name">Intervenants</field>
-            <field name="res_model">pia.intervenant</field>
-            <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_groupby_fonction': 1}</field>
-        </record>
         <record model="ir.actions.act_window" id="pia.action_window_synthese_logo">
             <field name="name">Synthèses logo</field>
             <field name="res_model">pia.synthese.logo</field>
@@ -54,17 +33,19 @@
             <field name="view_mode">tree,form</field>
         </record>
         <!-- Top menu item -->
-        <menuitem name="Intégration" id="pia.menu_root" groups="pia.group_pia_restrict"/>
+        <menuitem name="Intégration" web_icon="stock,static/description/icon.png" sequence="10" id="pia.menu_root" groups="tipwit_base.group_tipwit_restrict"/>
+        >
         <!-- menu categories -->
-        <menuitem name="Mes élèves" id="pia.menu_eleve" parent="pia.menu_root" action="pia.action_window_eleve" sequence="1"/>
+        <menuitem name="Mes élèves" id="pia.menu_eleve" parent="pia.menu_root" action="tipwit_base.action_window_eleve" sequence="1"/>
         <menuitem name="Mes contacts" id="pia.menu_contacts" parent="pia.menu_root" sequence="2"/>
-        <menuitem name="Implantations" id="pia.menu_implantation" parent="pia.menu_contacts" action="pia.action_window_implantation" sequence="2"/>
-        <menuitem name="Intervenants" id="pia.menu_intervenant" parent="pia.menu_contacts" action="pia.action_window_intervenant" sequence="3"/>
-        <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil" groups="pia.group_pia_manager" sequence="4"/>
-        <menuitem name="Réunions de parents" id="pia.menu_reunion_parents" parent="pia.menu_root" action="pia.action_window_reunion_parents" groups="pia.group_pia_manager" sequence="5"/>
-        <menuitem name="Entretiens extérieurs" id="pia.menu_entretien" parent="pia.menu_root" action="pia.action_window_entretien" groups="pia.group_pia_manager" sequence="6"/>
-        <menuitem name="Synthèses logo" id="pia.menu_synthese_logo" parent="pia.menu_root" action="pia.action_window_synthese_logo" groups="pia.group_pia_manager" sequence="7"/>
-        <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="pia.group_pia_manager" sequence="8"/>
-        <menuitem name="Bilans logo" id="pia.menu_bilan" parent="pia.menu_root" action="pia.action_window_bilan" groups="pia.group_pia_manager" sequence="9"/>
+        <menuitem name="Implantations" id="pia.menu_implantation" parent="pia.menu_contacts" action="tipwit_base.action_window_implantation" sequence="2"/>
+        <menuitem name="Intervenants" id="pia.menu_intervenant" parent="pia.menu_contacts" action="tipwit_base.action_window_intervenant" sequence="3"/>
+        <menuitem name="Utilisateurs" id="pia.menu_user" parent="pia.menu_contacts" action="tipwit_base.action_window_user" sequence="3" groups="tipwit_base.group_tipwit_manager"/>
+        <menuitem name="Conseils de classe" id="pia.menu_conseil" parent="pia.menu_root" action="pia.action_window_conseil" groups="tipwit_base.group_tipwit_manager" sequence="4"/>
+        <menuitem name="Réunions de parents" id="pia.menu_reunion_parents" parent="pia.menu_root" action="pia.action_window_reunion_parents" groups="tipwit_base.group_tipwit_manager" sequence="5"/>
+        <menuitem name="Entretiens extérieurs" id="pia.menu_entretien" parent="pia.menu_root" action="pia.action_window_entretien" groups="tipwit_base.group_tipwit_manager" sequence="6"/>
+        <menuitem name="Synthèses logo" id="pia.menu_synthese_logo" parent="pia.menu_root" action="pia.action_window_synthese_logo" groups="tipwit_base.group_tipwit_manager" sequence="7"/>
+        <menuitem name="Aménagements" id="pia.menu_amenagement" parent="pia.menu_root" action="pia.action_window_amenagement" groups="tipwit_base.group_tipwit_manager" sequence="8"/>
+        <menuitem name="Bilans logo" id="pia.menu_bilan" parent="pia.menu_root" action="pia.action_window_bilan" groups="tipwit_base.group_tipwit_manager" sequence="9"/>
     </data>
 </odoo>

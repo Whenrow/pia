@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields
 
 
 class TableRonde(models.Model):
@@ -9,11 +9,11 @@ class TableRonde(models.Model):
 
     name = fields.Char(default='Nouveau', string='Nom')
     date = fields.Date('Date', default=fields.Date.today)
-    eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
     implantation_id = fields.Many2one(related='eleve_id.implantation_id',string='Implantation')
 
     intervenant_ids = fields.Many2many(
-        'pia.intervenant',
+        'res.partner',
         'pia_intervant_pari_table_rel',
         'intervenant_id',
         'table_id'
@@ -28,8 +28,8 @@ class ObservationPari(models.Model):
 
     name = fields.Char(default='Nouveau', string='Nom')
     date = fields.Date('Date', default=fields.Date.today)
-    eleve_id = fields.Many2one('pia.eleve', 'Elève')
-    observateur_id = fields.Many2one('pia.intervenant', 'Observateur')
+    eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
+    observateur_id = fields.Many2one('res.partner', 'Observateur')
 
     compte_rendu = fields.Text('Compte rendu')
 
@@ -41,7 +41,7 @@ class ProtocoleAR(models.Model):
     name = fields.Char(default='Nouveau', string='Nom')
     date = fields.Date('Date', default=fields.Date.today)
     date_envoi = fields.Date('Date d\'envoi au PMS', default=fields.Date.today)
-    eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
     implantation_id = fields.Many2one(related='eleve_id.implantation_id',string='Implantation')
 
     #Partenariats
@@ -58,11 +58,11 @@ class ProtocoleAR(models.Model):
     osteo = fields.Many2one(related='eleve_id.osteo')
     autre = fields.Text(related='eleve_id.autre')
 
-    amenagement_actuels_ids = fields.Many2many('pia.amenagement', 'pia_amenagement_pari_protocole_actuel_rel', 'amenagement_id', 'conseil_id')
+    amenagement_actuels_ids = fields.Many2many('tipwit_base.amenagement', 'pia_amenagement_pari_protocole_actuel_rel', 'amenagement_id', 'conseil_id')
     amenagement_actuels_autre = fields.Text('Autres aménagements actuels')
-    amenagement_pari_ids = fields.Many2many('pia.amenagement', 'pia_amenagement_pari_protocole_pari_rel', 'amenagement_id', 'conseil_id')
+    amenagement_pari_ids = fields.Many2many('tipwit_base.amenagement', 'pia_amenagement_pari_protocole_pari_rel', 'amenagement_id', 'conseil_id')
     amenagement_pari_autre = fields.Text('Autres aménagements PARI')
-    amenagement_finaux_ids = fields.Many2many('pia.amenagement', 'pia_amenagement_pari_protocole_finaux_rel', 'amenagement_id', 'conseil_id')
+    amenagement_finaux_ids = fields.Many2many('tipwit_base.amenagement', 'pia_amenagement_pari_protocole_finaux_rel', 'amenagement_id', 'conseil_id')
     amenagement_finaux_autre = fields.Text('Autres aménagements décidés')
 
 
@@ -72,7 +72,7 @@ class Dac(models.Model):
 
     name = fields.Char(default='Nouveau', string='Nom')
     date = fields.Date('Date', default=fields.Date.today)
-    eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
 
     ressource = fields.Text('Ressources')
     besoin = fields.Text('Dispositif de différenciation et d’accompagnement personnalisé de l’élève à besoins spécifiques')

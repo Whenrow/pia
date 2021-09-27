@@ -1,58 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <report
-            string="PIA"
-            id="action_report_pia"
-            model="pia.conseil"
-            report_type="qweb-pdf"
-            name="pia.report_pia"
-            file="pia.report_pia"
-            print_report_name="'PIA%s' % object.report_name"
-        />
-        <report
-            string="PV"
-            id="action_report_pv"
-            model="pia.conseil"
-            report_type="qweb-pdf"
-            name="pia.report_pv"
-            file="pia.report_pv"
-            print_report_name="'PV%s' % object.report_name"
-        />
-        <report
-            string="Réunion de parents"
-            id="action_report_reunion_parents"
-            model="pia.reunion.parents"
-            report_type="qweb-pdf"
-            name="pia.report_reunion_parents"
-            file="pia.report_reunion_parents"
-            print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
-        />
-        <report
-            string="Synthèse logopède"
-            id="action_report_synthese_logo"
-            model="pia.synthese.logo"
-            report_type="qweb-pdf"
-            name="pia.report_synthese_logo"
-            file="pia.report_synthese_logo"
-            print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
-        />
-        <report
-            string="Entretien extérieur"
-            id="action_report_entretien"
-            model="pia.entretien"
-            report_type="qweb-pdf"
-            name="pia.report_entretien"
-            file="pia.report_entretien"
-            print_report_name="'%s - %s' % (object.name, object.eleve_id.name)"
-        />
-        <report
-            string="Bilan logopédique"
-            id="action_report_bilan"
-            model="pia.bilan.logo"
-            report_type="qweb-pdf"
-            name="pia.report_bilan"
-            file="pia.report_bilan"
-            print_report_name="'Bilan logo - %s' % object.eleve_id.name"
-        />
+        <record id="action_report_pia" model="ir.actions.report">
+            <field name="name">PIA</field>
+            <field name="model">pia.conseil</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pia.report_pia</field>
+            <field name="report_file">pia.report_pia</field>
+            <field name="print_report_name">'PIA%s' % object.report_name</field>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_pv" model="ir.actions.report">
+            <field name="name">PV</field>
+            <field name="model">pia.conseil</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pia.report_pv</field>
+            <field name="report_file">pia.report_pv</field>
+            <field name="print_report_name">'PV%s' % object.report_name</field>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_reunion_parents" model="ir.actions.report">
+            <field name="name">Réunion de parents</field>
+            <field name="model">pia.reunion.parents</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pia.report_reunion_parents</field>
+            <field name="report_file">pia.report_reunion_parents</field>
+            <field name="print_report_name">'%s - %s' % (object.name, object.eleve_id.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_synthese_logo" model="ir.actions.report">
+            <field name="name">Synthèse logopède</field>
+            <field name="model">pia.synthese.logo</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pia.report_synthese_logo</field>
+            <field name="report_file">pia.report_synthese_logo</field>
+            <field name="print_report_name">'%s - %s' % (object.name, object.eleve_id.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_entretien" model="ir.actions.report">
+            <field name="name">Entretien extérieur</field>
+            <field name="model">pia.entretien</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pia.report_entretien</field>
+            <field name="report_file">pia.report_entretien</field>
+            <field name="print_report_name">'%s - %s' % (object.name, object.eleve_id.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_bilan" model="ir.actions.report">
+            <field name="name">Bilan logopédique</field>
+            <field name="model">pia.bilan.logo</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pia.report_bilan</field>
+            <field name="report_file">pia.report_bilan</field>
+            <field name="print_report_name">'Bilan logo - %s' % object.eleve_id.name</field>
+            <field name="binding_type">report</field>
+        </record>
     </data>
 </odoo>

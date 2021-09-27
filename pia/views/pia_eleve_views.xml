@@ -1,112 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="pia_eleve_form_view" model="ir.ui.view">
+        <record id="pia_eleve_form_view_inherit" model="ir.ui.view">
             <field name="name">pia.eleve.form</field>
-            <field name="model">pia.eleve</field>
+            <field name="model">tipwit_base.eleve</field>
+            <field name="inherit_id" ref="tipwit_base.base_eleve_form_view"/>
             <field name="arch" type="xml">
-                <form string="Elèves">
-                    <sheet string="Elèves">
-                        <div class="oe_button_box" name="button_box">
-                            <button name="action_view_conseil" type="object"
-                                class="oe_stat_button" icon="fa-users" context="{'search_default_groupby_annee': 1}">
-                                <field name="conseil_count" widget="statinfo" string="CdC" />
-                            </button>
-                            <button name="action_view_bilan" type="object"
-                                class="oe_stat_button" icon="fa-users">
-                                <field name="bilan_count" widget="statinfo" string="Bilans logopédiques"/>
-                            </button>
-                            <button name="action_view_reunion" type="object"
-                                class="oe_stat_button" icon="fa-users">
-                                <field name="reunion_count" widget="statinfo" string="Réunions" />
-                            </button>
-                            <button name="action_view_synthese" type="object"
-                                class="oe_stat_button" icon="fa-users">
-                                <field name="synthese_count" widget="statinfo" string="Synthèses" />
-                            </button>
-                            <button name="action_view_entretien" type="object"
-                                class="oe_stat_button" icon="fa-users">
-                                <field name="entretien_count" widget="statinfo" string="Informations complémentaires" />
-                            </button>
-                        </div>
-                        <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
-                        <div class="oe_title">
-                            <h1>
-                                <field name="name"/>
-                            </h1>
-                        </div>
-                        <group>
-                            <group>
-                                <field name="annee_etude"/>
-                                <field name="implantation_id"/>
-                                <field name="date_naissance"/>
-                                <span class="o_form_label" name="address_name">
-                                    <b>Adresse</b>
-                                </span>
-                                <div class="o_address_format">
-                                    <field name="rue" placeholder="Rue..." class="o_address_street"/>
-                                    <field name="ville" placeholder="Ville" class="o_address_city"/>
-                                </div>
-                                <field name="langue_maison"/>
-                            </group>
-                            <group id='suivi'>
-                                <field name="insti_id" domain="[('fonction', '=', 'instit')]"/>
-                                <field name="logo_id" domain="[('fonction', '=', 'logo')]"/>
-                                <field name="coordi_id" domain="[('fonction', '=', 'coordinateur')]"/>
-                            </group>
-                        </group>
-                        <group id='tutorat'>
-                            <group string='Tuteur 1'>
-                                <field name="nom_tuteur_1"/>
-                                <field name="statut_tuteur_1"/>
-                                <field name="telephone_tuteur_1"/>
-                                <field name="email_tuteur_1"/>
-                            </group>
-                            <group string='Tuteur 2'>
-                                <field name="nom_tuteur_2"/>
-                                <field name="statut_tuteur_2"/>
-                                <field name="telephone_tuteur_2"/>
-                                <field name="email_tuteur_2"/>
-                            </group>
-                        </group>
-                        <group>
-                            <field name="parcours"/>
-                            <field name="bilan_medical"/>
-                            <field name="situation_psycho_sociale"/>
-                            <field name="diagnostic"/>
-                        </group>
-                    </sheet>
-                    <div class="oe_chatter" modifiers="{}">
-                		<field name="message_follower_ids" widget="mail_followers" modifiers="{}"/>
-                		<field name="activity_ids" widget="mail_activity" modifiers="{}"/>
-                		<field name="message_ids" widget="mail_thread" modifiers="{}" options="{'display_log_button': True}"/>
-                	</div>
-                </form>
-            </field>
-        </record>
-
-        <record id="pia_eleve_tree_view" model="ir.ui.view">
-            <field name="name">pia.eleve.tree</field>
-            <field name="model">pia.eleve</field>
-            <field name="arch" type="xml">
-                <tree string="Implantations">
-                    <field name="name"/>
-                    <field name="annee_etude"/>
-                    <field name="implantation_id"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="pia_eleve_search_view" model="ir.ui.view">
-            <field name="name">pia.eleve.search</field>
-            <field name="model">pia.eleve</field>
-            <field name="arch" type="xml">
-                <search string="Implantations">
-                    <field name="name"/>
-                    <group expand="0" string="Group By">
-                        <filter string="École" name="groupby_implantation" domain="[]" context="{'group_by': 'implantation_id'}"/>
-                    </group>
-                </search>
+                <xpath expr="//field[@name='image_1920']" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_conseil" type="object" class="oe_stat_button" icon="fa-users" context="{'search_default_groupby_annee': 1}">
+                            <field name="conseil_count" widget="statinfo" string="CdC"/>
+                        </button>
+                        <button name="action_view_bilan" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="bilan_count" widget="statinfo" string="Bilans logopédiques"/>
+                        </button>
+                        <button name="action_view_reunion" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="reunion_count" widget="statinfo" string="Réunions" />
+                        </button>
+                        <button name="action_view_synthese" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="synthese_count" widget="statinfo" string="Synthèses" />
+                        </button>
+                        <button name="action_view_entretien" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="entretien_count" widget="statinfo" string="Informations complémentaires" />
+                        </button>
+                    </div>
+                </xpath>
             </field>
         </record>
 

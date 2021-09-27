@@ -9,10 +9,10 @@ class ReunionParents(models.Model):
 
     name = fields.Char(default='Nouveau')
     date = fields.Date('Date', default=fields.Date.today)
-    eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
     implantation_id = fields.Many2one(related='eleve_id.implantation_id',string='Implantation')
     intervenant_ids = fields.Many2many(
-        'pia.intervenant',
+        'res.partner',
         'pia_intervant_pia_reunion_rel',
         'intervenant_id',
         'reunion_id'

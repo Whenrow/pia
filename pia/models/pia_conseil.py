@@ -14,11 +14,11 @@ class Conseil(models.Model):
     ], required=True)
     date = fields.Date('Date', default=fields.Date.today)
     annee_scolaire = fields.Char('Année scolaire', compute='_compute_annee_scolaire', store=True)
-    eleve_id = fields.Many2one('pia.eleve', 'Elève')
+    eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
     implantation_id = fields.Many2one(related='eleve_id.implantation_id', string='Implantation')
-    responsable_id = fields.Many2one('pia.intervenant', 'Responsable')
+    responsable_id = fields.Many2one('res.partner', 'Responsable')
     intervenant_ids = fields.Many2many(
-        'pia.intervenant',
+        'res.partner',
         'pia_intervant_pia_conseil_rel',
         'intervenant_id',
         'conseil_id'
@@ -28,8 +28,8 @@ class Conseil(models.Model):
     amenagement_ids = fields.Many2many('pia.amenagement', 'pia_amenagement_pia_conseil_res', 'amenagement_id', 'conseil_id')
     allowed_amenagement_ids = fields.One2many('pia.amenagement', compute='_compute_allowed_amenagement_ids')
     report_name = fields.Char(compute='_compute_report_name')
-    logo_id = fields.Many2one('pia.intervenant', compute='_compute_referals')
-    instit_id = fields.Many2one('pia.intervenant', compute='_compute_referals')
+    logo_id = fields.Many2one('res.partner', compute='_compute_referals')
+    instit_id = fields.Many2one('res.partner', compute='_compute_referals')
 
     # Observations
     ressource = fields.Text('Ressources')

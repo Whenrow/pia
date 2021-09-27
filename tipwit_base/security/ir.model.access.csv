@@ -1,0 +1,12 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_tipwit_base_eleve_restrict,tipwit_base.eleve.restrict,model_tipwit_base_eleve,tipwit_base.group_tipwit_restrict,1,0,0,0
+access_tipwit_base_implantation_restrict,tipwit_base.implantation.restrict,model_tipwit_base_implantation,tipwit_base.group_tipwit_restrict,1,0,0,0
+access_tipwit_base_intervenant_restrict,tipwit_base.intervenant.restrict,model_res_partner,tipwit_base.group_tipwit_restrict,1,0,0,0
+access_tipwit_base_amenagement_restrict,tipwit_base.amenagement.restrict,model_tipwit_base_amenagement,tipwit_base.group_tipwit_restrict,1,0,0,0
+access_tipwit_base_eleve_user,tipwit_base.eleve.user,model_tipwit_base_eleve,tipwit_base.group_tipwit_user,1,1,1,0
+access_tipwit_base_implantation_user,tipwit_base.implantation.user,model_tipwit_base_implantation,tipwit_base.group_tipwit_user,1,1,1,0
+access_tipwit_base_intervenant_user,tipwit_base.intervenant.user,model_res_partner,tipwit_base.group_tipwit_user,1,1,1,0
+access_tipwit_base_eleve_manager,tipwit_base.eleve.manager,model_tipwit_base_eleve,tipwit_base.group_tipwit_manager,1,1,1,1
+access_tipwit_base_implantation_manager,tipwit_base.implantation.manager,model_tipwit_base_implantation,tipwit_base.group_tipwit_manager,1,1,1,1
+access_tipwit_base_intervenant_manager,tipwit_base.intervenant.manager,model_res_partner,tipwit_base.group_tipwit_manager,1,1,1,1
+access_tipwit_base_amenagement_manager,tipwit_base.amenagement.manager,model_tipwit_base_amenagement,tipwit_base.group_tipwit_manager,1,1,1,1
