@@ -94,6 +94,7 @@
 
                         <h4>Aménagements raisonnables</h4>
                         <h5>AR actuels</h5>
+                        <t t-if="doc.protocole_ids.amenagement_actuels_ids">
                         <table class="table table-bordered" style="margin-top:10px">
                             <thead>
                                 <tr>
@@ -116,7 +117,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </t>
+                        <span t-field="doc.protocole_ids.amenagement_actuels_autre"/>
                         <h5>AR proposés par le PARI</h5>
+                        <t t-if="doc.protocole_ids.amenagement_pari_ids">
                         <table class="table table-bordered" style="margin-top:10px">
                             <thead>
                                 <tr>
@@ -139,7 +143,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </t>
+                        <span t-field="doc.protocole_ids.amenagement_pari_autre"/>
                         <h5>AR décidés</h5>
+                        <t t-if="doc.protocole_ids.amenagement_finaux_ids">
                         <table class="table table-bordered" style="margin-top:10px">
                             <thead>
                                 <tr>
@@ -162,6 +169,8 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </t>
+                        <span t-field="doc.protocole_ids.amenagement_finaux_autre"/>
 
                         <h4>Partenariats</h4>
                         <div class="container">
