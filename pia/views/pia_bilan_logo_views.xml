@@ -30,8 +30,8 @@
                                 <field name="ana_ids">
                                     <tree>
                                         <field name="epreuve_id"/>
-                                        <field name="note_pre" string="Note 2019"/>
-                                        <field name="ecart_type_pre" string="Écart-type 2019 (&#x03C3;)"/>
+                                        <field name="note_pre" string="Note année précédente"/>
+                                        <field name="ecart_type_pre" string="Écart-type année précédente (&#x03C3;)"/>
                                         <field name="note"/>
                                         <field name="ecart_type" string="Écart-type (&#x03C3;)"/>
                                         <field name="performance"/>

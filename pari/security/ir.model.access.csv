@@ -1,8 +1,9 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 access_pari_table_user,pari.table.user,model_pari_table_ronde,pari.group_pari_user,1,1,1,0
+access_pari_amenagement_user,pari.amenagement.user,pia.model_pia_amenagement,pari.group_pari_user,1,1,1,0
 access_pari_observation_user,pari.observation.user,model_pari_observation,pari.group_pari_user,1,1,1,0
 access_pari_protocole_user,pia.protocole.user,model_pari_protocole_ar,pari.group_pari_user,1,1,1,0
 access_pari_dac_user,pia.dac.user,model_pari_dac,pia.group_pia_user,1,1,1,0
-access_pari_eleve_user,pari.eleve.user,model_pia_eleve,pari.group_pari_user,1,1,1,0
+access_pari_eleve_user,pari.eleve.user,pia.model_pia_eleve,pari.group_pari_user,1,1,1,0
 access_pari_intervenant_user,pari.intervenant.user,pia.model_pia_intervenant,pari.group_pari_user,1,1,1,0
 access_pari_implantation_user,pari.implantation.user,pia.model_pia_implantation,pari.group_pari_user,1,1,1,0
