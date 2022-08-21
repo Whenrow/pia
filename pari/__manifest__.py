@@ -29,5 +29,6 @@
         'views/pia_eleve_views.xml',
         'views/pari_document_views.xml',
         'views/menus.xml',
+        'views/pari_template.xml',
     ],
 }

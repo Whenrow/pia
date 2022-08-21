@@ -173,66 +173,54 @@
                         <span t-field="doc.protocole_ids.amenagement_finaux_autre"/>
 
                         <h4>Partenariats</h4>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6 row">
-                                    <div class="col-auto">Logopède : </div>
-                                    <div class="col-auto" t-field="doc.logo"/>
-                                </div>
-                                <div class="col-6 row">
-                                    <div class="col-auto">Ergothérapeute : </div>
-                                    <div class="col-auto" t-field="doc.ergo"/>
-                                </div>
+                        <div class="d-flex flex-wrap">
+                            <div class="pari-partner" t-if="doc.logo">
+                                <div>Logopède : </div>
+                                <div class="ml-2" t-field="doc.logo"/>
                             </div>
-                            <div class="row">
-                                <div class="col-6 row">
-                                    <div class="col-auto">Kinésithérapeute : </div>
-                                    <div class="col-auto" t-field="doc.kine"/>
-                                </div>
-                                <div class="col-6 row">
-                                    <div class="col-auto">Psy : </div>
-                                    <div class="col-auto" t-field="doc.psy"/>
-                                </div>
+                            <div class="pari-partner" t-if="doc.ergo">
+                                <div>Ergothérapeute : </div>
+                                <div class="ml-2" t-field="doc.ergo"/>
                             </div>
-                            <div class="row">
-                                <div class="col-6 row">
-                                    <div class="col-auto">Neuropsy : </div>
-                                    <div class="col-auto" t-field="doc.neuropsy"/>
-                                </div>
-                                <div class="col-6 row">
-                                    <div class="col-auto">Pédopsy : </div>
-                                    <div class="col-auto" t-field="doc.pedopsy"/>
-                                </div>
+                            <div class="pari-partner" t-if="doc.kine">
+                                <div>Kinésithérapeute : </div>
+                                <div class="ml-2" t-field="doc.kine"/>
                             </div>
-                            <div class="row">
-                                <div class="col-6 row">
-                                    <div class="col-auto">Orthoptiste : </div>
-                                    <div class="col-auto" t-field="doc.orthoptiste"/>
-                                </div>
-                                <div class="col-6 row">
-                                    <div class="col-auto">Neuropédiatre : </div>
-                                    <div class="col-auto" t-field="doc.neuroped"/>
-                                </div>
+                            <div class="pari-partner" t-if="doc.psy">
+                                <div>Psy : </div>
+                                <div class="ml-2" t-field="doc.psy"/>
                             </div>
-                            <div class="row">
-                                <div class="col-6 row">
-                                    <div class="col-auto">Orthopédagoque : </div>
-                                    <div class="col-auto" t-field="doc.orthopeda"/>
-                                </div>
-                                <div class="col-6 row">
-                                    <div class="col-auto">Kinésiologue : </div>
-                                    <div class="col-auto" t-field="doc.kinesio"/>
-                                </div>
+                            <div class="pari-partner" t-if="doc.neuropsy">
+                                <div>Neuropsy : </div>
+                                <div class="ml-2" t-field="doc.neuropsy"/>
                             </div>
-                            <div class="row">
-                                <div class="col-6 row">
-                                    <div class="col-auto">Ostéopathe : </div>
-                                    <div class="col-auto" t-field="doc.orthopeda"/>
-                                </div>
-                                <div class="col-6 row">
-                                    <div class="col-auto">Autre : </div>
-                                    <div class="col-auto" t-field="doc.autre"/>
-                                </div>
+                            <div class="pari-partner" t-if="doc.pedopsy">
+                                <div>Pédopsy : </div>
+                                <div class="ml-2" t-field="doc.pedopsy"/>
+                            </div>
+                            <div class="pari-partner" t-if="doc.orthoptiste">
+                                <div>Orthoptiste : </div>
+                                <div class="ml-2" t-field="doc.orthoptiste"/>
+                            </div>
+                            <div class="pari-partner" t-if="doc.neuroped">
+                                <div>Neuropédiatre : </div>
+                                <div class="ml-2" t-field="doc.neuroped"/>
+                            </div>
+                            <div class="pari-partner" t-if="doc.orthopeda">
+                                <div>Orthopédagoque : </div>
+                                <div class="ml-2" t-field="doc.orthopeda"/>
+                            </div>
+                            <div class="pari-partner" t-if="doc.kinesio">
+                                <div>Kinésiologue : </div>
+                                <div class="ml-2" t-field="doc.kinesio"/>
+                            </div>
+                            <div class="pari-partner" t-if="doc.osteo">
+                                <div>Ostéopathe : </div>
+                                <div class="ml-2" t-field="doc.osteo"/>
+                            </div>
+                            <div class="pari-partner" t-if="doc.autre">
+                                <div>Autre : </div>
+                                <div class="ml-2" t-field="doc.autre"/>
                             </div>
                         </div>
 
