@@ -44,46 +44,41 @@
                     </group>
                 </xpath>
                 <xpath expr="//sheet" position="inside">
-                    <notebook>
-                        <page string="Tuteurs">
-                            <group>
-                                <group string='Tuteur 1'>
-                                    <field name="nom_tuteur_1"/>
-                                    <field name="statut_tuteur_1"/>
-                                    <field name="adresse_tuteur_1"/>
-                                    <field name="telephone_tuteur_1"/>
-                                    <field name="email_tuteur_1"/>
-                                </group>
-                                <group string='Tuteur 2'>
-                                    <field name="nom_tuteur_2"/>
-                                    <field name="statut_tuteur_2"/>
-                                    <field name="adresse_tuteur_2"/>
-                                    <field name="telephone_tuteur_2"/>
-                                    <field name="email_tuteur_2"/>
-                                </group>
-                            </group>
-                        </page>
-                        <page string="Partenariats">
-                            <group>
-                                <group>
-                                    <field name="logo"/>
-                                    <field name="ergo"/>
-                                    <field name="kine"/>
-                                    <field name="psy"/>
-                                    <field name="neuropsy"/>
-                                    <field name="pedopsy"/>
-                                </group>
-                                <group>
-                                    <field name="orthoptiste"/>
-                                    <field name="neuroped"/>
-                                    <field name="orthopeda"/>
-                                    <field name="kinesio"/>
-                                    <field name="osteo"/>
-                                    <field name="autre"/>
-                                </group>
-                            </group>
-                        </page>
-                    </notebook>
+                    <group>
+                        <group string='Tuteur 1'>
+                            <field name="nom_tuteur_1"/>
+                            <field name="statut_tuteur_1"/>
+                            <field name="adresse_tuteur_1"/>
+                            <field name="telephone_tuteur_1"/>
+                            <field name="email_tuteur_1"/>
+                        </group>
+                        <group string='Tuteur 2'>
+                            <field name="nom_tuteur_2"/>
+                            <field name="statut_tuteur_2"/>
+                            <field name="adresse_tuteur_2"/>
+                            <field name="telephone_tuteur_2"/>
+                            <field name="email_tuteur_2"/>
+                        </group>
+                    </group>
+                    <h2>Partenariats</h2>
+                    <group>
+                        <group>
+                            <field name="logo"/>
+                            <field name="ergo"/>
+                            <field name="kine"/>
+                            <field name="psy"/>
+                            <field name="neuropsy"/>
+                            <field name="pedopsy"/>
+                        </group>
+                        <group>
+                            <field name="orthoptiste"/>
+                            <field name="neuroped"/>
+                            <field name="orthopeda"/>
+                            <field name="kinesio"/>
+                            <field name="osteo"/>
+                            <field name="autre"/>
+                        </group>
+                    </group>
                 </xpath>
             </field>
         </record>

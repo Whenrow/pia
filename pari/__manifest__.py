@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "PARI",
+    'name': "Pôle",
 
     'summary': """
         Gestion des élèves de l'enseignement primaire suivis dans le cadre du PARI. """,
