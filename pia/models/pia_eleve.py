@@ -48,6 +48,9 @@ class Eleve(models.Model):
     diagnostic = fields.Text('Diagnostic')
     intervenants_ext = fields.Text('Intervenant Extérieurs')
     annee_etude = fields.Selection([
+       ('acc', 'Accueil'),
+       ('m1', 'M1'),
+       ('m2', 'M2'),
        ('m3', 'M3'),
        ('p1', 'P1'),
        ('p1b', 'P1 bis'),
