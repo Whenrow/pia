@@ -93,135 +93,148 @@
                         </div>
 
                         <h4>Aménagements raisonnables</h4>
-                        <h5>AR actuels</h5>
-                        <t t-if="doc.protocole_ids.amenagement_actuels_ids">
-                        <table class="table table-bordered" style="margin-top:10px">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span>Type</span>
-                                    </th>
-                                    <th>
-                                        <span>Amenagements</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr t-foreach="doc.protocole_ids.amenagement_actuels_ids" t-as="table_line">
-                                    <td>
-                                        <span t-field="table_line.type"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="table_line.name"/>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <t t-foreach="doc.protocole_ids" t-as="proto">
+                            <h5>AR actuels</h5>
+                            <t t-if="proto.amenagement_actuels_ids">
+                                <table class="table table-bordered" style="margin-top:10px">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <span>Type</span>
+                                            </th>
+                                            <th>
+                                                <span>Amenagements</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="proto.amenagement_actuels_ids" t-as="table_line">
+                                            <td>
+                                                <span t-field="table_line.type"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="table_line.name"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <span t-field="proto.amenagement_actuels_autre"/>
+                            <h5>AR proposés par le PARI</h5>
+                            <t t-if="proto.amenagement_pari_ids">
+                                <table class="table table-bordered" style="margin-top:10px">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <span>Type</span>
+                                            </th>
+                                            <th>
+                                                <span>Amenagements</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="proto.amenagement_pari_ids" t-as="table_line">
+                                            <td>
+                                                <span t-field="table_line.type"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="table_line.name"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <span t-field="proto.amenagement_pari_autre"/>
+                            <h5>AR décidés</h5>
+                            <t t-if="proto.amenagement_finaux_ids">
+                                <table class="table table-bordered" style="margin-top:10px">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <span>Type</span>
+                                            </th>
+                                            <th>
+                                                <span>Amenagements</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="proto.amenagement_finaux_ids" t-as="table_line">
+                                            <td>
+                                                <span t-field="table_line.type"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="table_line.name"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <span t-field="proto.amenagement_finaux_autre"/>
                         </t>
-                        <span t-field="doc.protocole_ids.amenagement_actuels_autre"/>
-                        <h5>AR proposés par le PARI</h5>
-                        <t t-if="doc.protocole_ids.amenagement_pari_ids">
-                        <table class="table table-bordered" style="margin-top:10px">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span>Type</span>
-                                    </th>
-                                    <th>
-                                        <span>Amenagements</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr t-foreach="doc.protocole_ids.amenagement_pari_ids" t-as="table_line">
-                                    <td>
-                                        <span t-field="table_line.type"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="table_line.name"/>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </t>
-                        <span t-field="doc.protocole_ids.amenagement_pari_autre"/>
-                        <h5>AR décidés</h5>
-                        <t t-if="doc.protocole_ids.amenagement_finaux_ids">
-                        <table class="table table-bordered" style="margin-top:10px">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span>Type</span>
-                                    </th>
-                                    <th>
-                                        <span>Amenagements</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr t-foreach="doc.protocole_ids.amenagement_finaux_ids" t-as="table_line">
-                                    <td>
-                                        <span t-field="table_line.type"/>
-                                    </td>
-                                    <td>
-                                        <span t-field="table_line.name"/>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </t>
-                        <span t-field="doc.protocole_ids.amenagement_finaux_autre"/>
 
                         <h4>Partenariats</h4>
-                        <div class="d-flex flex-wrap">
-                            <div class="pari-partner" t-if="doc.logo">
-                                <div>Logopède : </div>
-                                <div class="ml-2" t-field="doc.logo"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.ergo">
-                                <div>Ergothérapeute : </div>
-                                <div class="ml-2" t-field="doc.ergo"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.kine">
-                                <div>Kinésithérapeute : </div>
-                                <div class="ml-2" t-field="doc.kine"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.psy">
-                                <div>Psy : </div>
-                                <div class="ml-2" t-field="doc.psy"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.neuropsy">
-                                <div>Neuropsy : </div>
-                                <div class="ml-2" t-field="doc.neuropsy"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.pedopsy">
-                                <div>Pédopsy : </div>
-                                <div class="ml-2" t-field="doc.pedopsy"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.orthoptiste">
-                                <div>Orthoptiste : </div>
-                                <div class="ml-2" t-field="doc.orthoptiste"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.neuroped">
-                                <div>Neuropédiatre : </div>
-                                <div class="ml-2" t-field="doc.neuroped"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.orthopeda">
-                                <div>Orthopédagoque : </div>
-                                <div class="ml-2" t-field="doc.orthopeda"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.kinesio">
-                                <div>Kinésiologue : </div>
-                                <div class="ml-2" t-field="doc.kinesio"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.osteo">
-                                <div>Ostéopathe : </div>
-                                <div class="ml-2" t-field="doc.osteo"/>
-                            </div>
-                            <div class="pari-partner" t-if="doc.autre">
-                                <div>Autre : </div>
-                                <div class="ml-2" t-field="doc.autre"/>
-                            </div>
+                        <div class="pari-partenaria">
+                            <span class="pari-partner" t-if="doc.logo">
+                                <span>Logopède : </span>
+                                <span class="ml-2" t-field="doc.logo"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.ergo">
+                                <span>Ergothérapeute : </span>
+                                <span class="ml-2" t-field="doc.ergo"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.kine">
+                                <span>Kinésithérapeute : </span>
+                                <span class="ml-2" t-field="doc.kine"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.psy">
+                                <span>Psy : </span>
+                                <span class="ml-2" t-field="doc.psy"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.neuropsy">
+                                <span>Neuropsy : </span>
+                                <span class="ml-2" t-field="doc.neuropsy"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.pedopsy">
+                                <span>Pédopsy : </span>
+                                <span class="ml-2" t-field="doc.pedopsy"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.orthoptiste">
+                                <span>Orthoptiste : </span>
+                                <span class="ml-2" t-field="doc.orthoptiste"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.neuroped">
+                                <span>Neuropédiatre : </span>
+                                <span class="ml-2" t-field="doc.neuroped"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.orthopeda">
+                                <span>Orthopédagoque : </span>
+                                <span class="ml-2" t-field="doc.orthopeda"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.kinesio">
+                                <span>Kinésiologue : </span>
+                                <span class="ml-2" t-field="doc.kinesio"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.osteo">
+                                <span>Ostéopathe : </span>
+                                <span class="ml-2" t-field="doc.osteo"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.autre">
+                                <span>Autre : </span>
+                                <span class="ml-2" t-field="doc.autre"/>
+                            </span>
                         </div>
 
                         <h4>Signatures</h4>
@@ -261,6 +274,283 @@
                         <div class="row">
                             <div class="col-1"/>
                             <div class="col-10" t-field="doc.dac_ids.besoin"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="pari.report_protocole_ar">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="container">
+                            <header>
+                                <h3>
+                                    Modèle de protocole/dispositif de différenciation et d’accompagnement personnalisé de l’élève à besoins spécifiques
+                                </h3>
+                                <h6>
+                                    En vertu des articles 1.7.8.1 et suivants du décret du 3 mai 2019 portant les livres 1er et 2 du Code de l'enseignement fondamental et de l'enseignement secondaire, et mettant en place le tronc commun- AMENAGEMENTS RAISONNABLES
+                                </h6>
+                            </header>
+                            <div class="row">
+                                <div class="col-4">Demande introduite le :</div>
+                                <div class="col-4"/>
+                                <div class="col-4">Par :</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">Auprès de l'établissement</div>
+                                <div class="col-3" t-field="doc.implantation_id.name"/>
+                            </div>
+                        </div>
+
+                        <h4>Identification de l'élève</h4>
+                        <div class="container">
+                            <div class="row">
+                                <div>Nom et prénom de l'élève : </div>
+                                <div t-field="doc.eleve_id.name"/>
+                            </div>
+                            <div class="row">
+                                <div>Date de naissance : </div>
+                                <div t-field="doc.eleve_id.date_naissance"/>
+                            </div>
+                            <div class="row">
+                                <div>Année d'étude : </div>
+                                <div t-field="doc.eleve_id.annee_etude"/>
+                            </div>
+                        </div>
+
+                        <h4>Identification des tuteurs : </h4>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Nom et prénom : </div>
+                                    <div class="col-auto" t-field="doc.eleve_id.nom_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Nom et prénom : </div>
+                                    <div class="col-auto" t-field="doc.eleve_id.nom_tuteur_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Adresse : </div>
+                                    <div class="col-auto" t-field="doc.eleve_id.adresse_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Adresse : </div>
+                                    <div class="col-auto" t-field="doc.eleve_id.adresse_tuteur_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Téléphone</div>
+                                    <div class="col-auto" t-field="doc.eleve_id.telephone_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Téléphone</div>
+                                    <div class="col-auto" t-field="doc.eleve_id.telephone_tuteur_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <div class="col-auto">Email : </div>
+                                    <div class="col-auto" t-field="doc.eleve_id.email_tuteur_1"/>
+                                </div>
+                                <div class="col-6 row">
+                                    <div class="col-auto">Email : </div>
+                                    <div class="col-auto" t-field="doc.eleve_id.email_tuteur_2"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Besoin(s) spécifique(s) reconnu(s) :</h4>
+                        <div class="container">
+                            <div class="row">
+                                <div t-field="doc.eleve_id.diagnostic"/>
+                            </div>
+                        </div>
+
+                        <h4>Aménagements raisonnables</h4>
+                        <h5>AR actuels</h5>
+                        <t t-if="doc.amenagement_actuels_ids">
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.amenagement_actuels_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <span t-field="doc.amenagement_actuels_autre"/>
+                        <h5>AR proposés par le PARI</h5>
+                        <t t-if="doc.amenagement_pari_ids">
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.amenagement_pari_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <span t-field="doc.amenagement_pari_autre"/>
+                        <h5>AR décidés</h5>
+                        <t t-if="doc.amenagement_finaux_ids">
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Type</span>
+                                    </th>
+                                    <th>
+                                        <span>Amenagements</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.amenagement_finaux_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <span t-field="doc.amenagement_finaux_autre"/>
+
+                        <h4>Partenariats</h4>
+                        <div class="pari-partenaria">
+                            <span class="pari-partner" t-if="doc.eleve_id.logo">
+                                <span>Logopède : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.logo"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.ergo">
+                                <span>Ergothérapeute : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.ergo"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.kine">
+                                <span>Kinésithérapeute : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.kine"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.psy">
+                                <span>Psy : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.psy"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.neuropsy">
+                                <span>Neuropsy : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.neuropsy"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.pedopsy">
+                                <span>Pédopsy : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.pedopsy"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.orthoptiste">
+                                <span>Orthoptiste : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.orthoptiste"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.neuroped">
+                                <span>Neuropédiatre : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.neuroped"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.orthopeda">
+                                <span>Orthopédagoque : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.orthopeda"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.kinesio">
+                                <span>Kinésiologue : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.kinesio"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.osteo">
+                                <span>Ostéopathe : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.osteo"/>
+                                <br/>
+                            </span>
+                            <span class="pari-partner" t-if="doc.eleve_id.autre">
+                                <span>Autre : </span>
+                                <span class="ml-2" t-field="doc.eleve_id.autre"/>
+                                <br/>
+                            </span>
+                        </div>
+
+                        <h4>Signatures</h4>
+                        <div class="row" style="margin-bottom: 35px;">
+                            <div class="col-6 row">
+                                <div class="col-auto"><strong>Élève</strong></div>
+                            </div>
+                            <div class="col-6 row">
+                                <div class="col-auto"><strong>Tuteurs</strong></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 35px;">
+                            <div class="col-6 row">
+                                <div class="col-auto"><strong>Direction</strong></div>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-bottom: 35px;">Information au CPMS le :</h4>
+
+                        <h4>DAC</h4>
+                        <h6>Observations préalables au CdC :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.eleve_id.dac_ids.observation"/>
+                        </div>
+                        <h6>Informations relayées au CdC :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.eleve_id.dac_ids.autre"/>
+                        </div>
+                        <h6>Ressources :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.eleve_id.dac_ids.ressource"/>
+                        </div>
+                        <h6>Besoins :</h6>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-10" t-field="doc.eleve_id.dac_ids.besoin"/>
                         </div>
                     </t>
                 </t>
