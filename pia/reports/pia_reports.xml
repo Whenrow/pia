@@ -8,6 +8,7 @@
             <field name="report_name">pia.report_pia</field>
             <field name="report_file">pia.report_pia</field>
             <field name="print_report_name">'PIA%s' % object.report_name</field>
+            <field name="binding_model_id" ref="model_pia_conseil"/>
             <field name="binding_type">report</field>
         </record>
         <record id="action_report_pv" model="ir.actions.report">
@@ -17,6 +18,7 @@
             <field name="report_name">pia.report_pv</field>
             <field name="report_file">pia.report_pv</field>
             <field name="print_report_name">'PV%s' % object.report_name</field>
+            <field name="binding_model_id" ref="model_pia_conseil"/>
             <field name="binding_type">report</field>
         </record>
         <record id="action_report_reunion_parents" model="ir.actions.report">
@@ -26,6 +28,7 @@
             <field name="report_name">pia.report_reunion_parents</field>
             <field name="report_file">pia.report_reunion_parents</field>
             <field name="print_report_name">'%s - %s' % (object.name, object.eleve_id.name)</field>
+            <field name="binding_model_id" ref="model_pia_reunion_parents"/>
             <field name="binding_type">report</field>
         </record>
         <record id="action_report_synthese_logo" model="ir.actions.report">
@@ -35,6 +38,7 @@
             <field name="report_name">pia.report_synthese_logo</field>
             <field name="report_file">pia.report_synthese_logo</field>
             <field name="print_report_name">'%s - %s' % (object.name, object.eleve_id.name)</field>
+            <field name="binding_model_id" ref="model_pia_synthese_logo"/>
             <field name="binding_type">report</field>
         </record>
         <record id="action_report_entretien" model="ir.actions.report">
@@ -44,6 +48,7 @@
             <field name="report_name">pia.report_entretien</field>
             <field name="report_file">pia.report_entretien</field>
             <field name="print_report_name">'%s - %s' % (object.name, object.eleve_id.name)</field>
+            <field name="binding_model_id" ref="model_pia_entretien"/>
             <field name="binding_type">report</field>
         </record>
         <record id="action_report_bilan" model="ir.actions.report">
@@ -53,6 +58,7 @@
             <field name="report_name">pia.report_bilan</field>
             <field name="report_file">pia.report_bilan</field>
             <field name="print_report_name">'Bilan logo - %s' % object.eleve_id.name</field>
+            <field name="binding_model_id" ref="model_pia_bilan_logo"/>
             <field name="binding_type">report</field>
         </record>
     </data>
