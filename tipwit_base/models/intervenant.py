@@ -21,6 +21,8 @@ class Intervenant(models.Model):
         ('titulaire', 'Titulaire ordinaire'),
         ('coordinateur', 'Coordinateur/trice intégration'),
         ('neuropsy-int', 'Neuropsy intégration'),
+        ('psycho-edu', 'Psycho-éducatrice'),
+        ('psychomot', 'Psychomotricienne'),
         ('exterieur', 'Intervenant extérieur'),
         ('autre', 'Autre')
     ], required=True, default="autre")
