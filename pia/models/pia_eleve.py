@@ -41,35 +41,35 @@ class Eleve(models.Model):
 
     def action_view_synthese(self):
         self.ensure_one()
-        action = self.env.ref('pia.action_view_synthese').read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id("pia.action_view_synthese")
         action['domain'] = [('eleve_id', '=', self.id)]
         action['context'] = dict(self._context, default_eleve_id=self.id)
         return action
 
     def action_view_reunion(self):
         self.ensure_one()
-        action = self.env.ref('pia.action_view_reunion').read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id("pia.action_view_reunion")
         action['domain'] = [('eleve_id', '=', self.id)]
         action['context'] = dict(self._context, default_eleve_id=self.id)
         return action
 
     def action_view_conseil(self):
         self.ensure_one()
-        action = self.env.ref('pia.action_view_conseil').read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id("pia.action_view_conseil")
         action['domain'] = [('eleve_id', '=', self.id)]
         action['context'] = dict(self._context, default_eleve_id=self.id)
         return action
 
     def action_view_entretien(self):
         self.ensure_one()
-        action = self.env.ref('pia.action_view_entretien').read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id("pia.action_view_entretien")
         action['domain'] = [('eleve_id', '=', self.id)]
         action['context'] = dict(self._context, default_eleve_id=self.id)
         return action
 
     def action_view_bilan(self):
         self.ensure_one()
-        action = self.env.ref('pia.action_view_bilan').read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id("pia.action_view_bilan")
         action['domain'] = [('eleve_id', '=', self.id)]
         action['context'] = dict(self._context, default_eleve_id=self.id)
         return action
