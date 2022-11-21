@@ -57,7 +57,13 @@ class Eleve(models.Model):
        ('p5', 'P5'),
        ('p5b', 'P5 bis'),
        ('p6', 'P6'),
-       ('p6b', 'P6 bis')
+       ('p6b', 'P6 bis'),
+       ('s1', 'S1'),
+       ('s2', 'S2'),
+       ('s3', 'S3'),
+       ('s4', 'S4'),
+       ('s5', 'S5'),
+       ('s6', 'S6')
     ], string='Année d\'étude')
     insti_id = fields.Many2one('res.partner','Instit intégration')
     logo_id = fields.Many2one('res.partner','Logo intégration')
