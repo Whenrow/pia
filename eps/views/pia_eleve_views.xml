@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_eleve_form_view_inherit_eps" model="ir.ui.view">
+            <field name="name">pia.eleve.form.eps</field>
+            <field name="model">tipwit_base.eleve</field>
+            <field name="inherit_id" ref="pia.pia_eleve_form_view_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_view_conseil']" position="after">
+                    <button name="action_view_pia" type="object" class="oe_stat_button" icon="fa-users" context="{'search_default_groupby_annee': 1}">
+                        <field name="pia_count" widget="statinfo" string="PIA"/>
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='langue_maison']" position="after">
+                    <field name="droit_image" widget="boolean_toggle"/>
+                    <field name="outil"/>
+                </xpath>
+                <xpath expr="//group[@id='tutorat']" position="attributes">
+                    <attribute name="class">d-flex</attribute>
+                </xpath>
+                <xpath expr="//field[@name='statut_tuteur_1']" position="after">
+                    <span class="o_form_label">
+                        <b>Adresse</b>
+                    </span>
+                    <div class="o_address_format">
+                        <field name="street_1" placeholder="Rue..." class="o_address_street"/>
+                        <field name="ville_1" placeholder="Ville" class="o_address_city"/>
+                    </div>
+                    <field name="job_1" string="Profession"/>
+                </xpath>
+                <xpath expr="//field[@name='statut_tuteur_2']" position="after">
+                    <span class="o_form_label" name="address_name">
+                        <b>Adresse</b>
+                    </span>
+                    <div class="o_address_format">
+                        <field name="street_2" placeholder="Rue..." class="o_address_street"/>
+                        <field name="ville_2" placeholder="Ville" class="o_address_city"/>
+                    </div>
+                    <field name="job_2" string="Profession"/>
+                </xpath>
+
+                <xpath expr="//group[@id='tutorat']" position="inside">
+                    <group string='Tuteur 3'>
+                        <field name="nom_tuteur_3" string="Nom"/>
+                        <field name="statut_tuteur_3" string="Statut"/>
+                        <span class="o_form_label" name="address_name">
+                            <b>Adresse</b>
+                        </span>
+                        <div class="o_address_format">
+                            <field name="street_3" placeholder="Rue..." class="o_address_street"/>
+                            <field name="ville_3" placeholder="Ville" class="o_address_city"/>
+                        </div>
+                        <field name="job_3" string="Profession"/>
+                        <field name="telephone_tuteur_3" string="Téléphone"/>
+                        <field name="email_tuteur_3" string="Email"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='insti_id']" position="attributes">
+                    <attribute name="string">Titulaire</attribute>
+                </xpath>
+                <xpath expr="//field[@name='implantation_id']" position="attributes">
+                    <attribute name="string">Classe</attribute>
+                </xpath>
+                <xpath expr="//field[@name='logo_id']" position="attributes">
+                    <attribute name="string">Logopède</attribute>
+                </xpath>
+                <xpath expr="//field[@name='coordi_id']" position="attributes">
+                    <attribute name="string">Titulaire 2</attribute>
+                </xpath>
+                <xpath expr="//field[@name='situation_psycho_sociale']" position="attributes">
+                    <attribute name="string">Informations importantes</attribute>
+                </xpath>
+                <xpath expr="//group[@id='details']" position="after">
+                    <field name="detail_ids">
+                        <tree editable="top">
+                            <field name="annee_etude"/>
+                            <field name="ecole"/>
+                            <field name="classe"/>
+                            <field name="prise"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+        <record id="eps_eleve_search_view" model="ir.ui.view">
+            <field name="name">eps.eleve.search.view</field>
+            <field name="model">tipwit_base.eleve</field>
+            <field name="inherit_id" ref="tipwit_base.base_eleve_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='groupby_implantation']" position="attributes">
+                    <attribute name="string">Classe</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="eps_eleve_tree_view" model="ir.ui.view">
+            <field name="name">eps.eleve.tree.view</field>
+            <field name="model">tipwit_base.eleve</field>
+            <field name="inherit_id" ref="tipwit_base.base_eleve_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='implantation_id']" position="attributes">
+                    <attribute name="string">Classe</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="action_view_pia" model="ir.actions.act_window">
+            <field name="name">PIA</field>
+            <field name="res_model">eps.pia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer un PIA
+                </p>
+            </field>
+        </record>       
+    </data>
+</odoo>

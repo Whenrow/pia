@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="eps.report_conseil">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-4">
+                                <span>
+                                    <strong>Élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.eleve_id.name"/>
+                                <p t-field="doc.implantation_id.name"/>
+                            </div>
+                            <div class="col-4"/>
+                            <div class="col-4"/>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u><t t-esc="dict(doc.fields_get(allfields=['name'])['name']['selection'])[doc.name]"/></u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Intervenants</h3>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Nom</span>
+                                    </th>
+                                    <th>
+                                        <span>Fonction</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.intervenant_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.fonction"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col">
+                                <h3>Observations</h3>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.niv_fr">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Niveau en français</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.niv_fr"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.niv_math">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Niveau en math</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.niv_math"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.rel">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Relationnel</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.rel"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.logo">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Niveau en logo</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.logo"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.gym">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Niveau en gym</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.gym"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.info">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Niveau en informatique</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.info"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.trav_man">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Niveau en travaux manuels</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.trav_man"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3>Décisions</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span t-field="doc.a_faire"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

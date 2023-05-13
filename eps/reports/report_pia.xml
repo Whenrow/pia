@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="eps.report_pia">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-4">
+                                <span>
+                                    <strong>Élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.eleve_id.name"/>
+                                <span t-field="doc.implantation_id.name"/>
+                            </div>
+                            <div class="col-4"/>
+                            <div class="col-4"/>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col h2">
+                                <span>
+                                    <b>
+                                        <u><t t-esc="dict(doc.fields_get(allfields=['name'])['name']['selection'])[doc.name]"/></u>
+                                    </b>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <span t-field="doc.date" t-options-widget="'date'" t-options-format="'dd MMMM YYYY'"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <div class="col">
+                                <h3>Intervenants</h3>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" style="margin-top:10px">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Nom</span>
+                                    </th>
+                                    <th>
+                                        <span>Fonction</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.intervenant_ids" t-as="table_line">
+                                    <td>
+                                        <span t-field="table_line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="table_line.fonction"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col text-start">
+                                <span>Domain : </span>
+                                <span t-field="doc.domaine"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.difficulte">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Difficulté principale</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.difficulte"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.force">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Forces de l'élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.force"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.besoin">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Besoins de l'élève</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.besoin"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.objectif">
+                            <div class="col-1"/>
+                            <div class="col-11">
+                                <span>
+                                    <strong>Objectif PIA</strong>
+                                    <br/>
+                                </span>
+                                <span t-field="doc.objectif"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_eps_eleve_detail_restrict,eps.eleve.detail.restrict,model_eps_eleve_detail,tipwit_base.group_tipwit_restrict,1,0,0,0
+access_eps_eleve_detail_user,eps.eleve.detail.user,model_eps_eleve_detail,tipwit_base.group_tipwit_user,1,1,1,0
+access_eps_eleve_detail_manager,eps.eleve.detail.manager,model_eps_eleve_detail,tipwit_base.group_tipwit_manager,1,1,1,1
+access_eps_pia_restrict,eps.pia.restrict,model_eps_pia,tipwit_base.group_tipwit_restrict,1,0,0,0
+access_eps_pia_user,eps.pia.user,model_eps_pia,tipwit_base.group_tipwit_user,1,1,1,0
+access_eps_pia_manager,eps.pia.manager,model_eps_pia,tipwit_base.group_tipwit_manager,1,1,1,1
+

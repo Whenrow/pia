@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_conseil_form_view_inherit_eps" model="ir.ui.view">
+            <field name="name">pia.conseil.form.eps</field>
+            <field name="model">pia.conseil</field>
+            <field name="inherit_id" ref="pia.pia_conseil_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='besoin']" position="after">
+                    <field name="niv_fr"/>
+                    <field name="niv_math"/>
+                    <field name="rel"/>
+                    <field name="logo"/>
+                    <field name="gym"/>
+                    <field name="info"/>
+                    <field name="trav_man"/>
+                </xpath>
+                <xpath expr="//field[@name='observation']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='autre']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='ressource']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='besoin']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[6]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="eps_pia_form_view" model="ir.ui.view">
+            <field name="name">eps.pia.form</field>
+            <field name="model">eps.pia</field>
+            <field name="arch" type="xml">
+                <form string="PIA">
+                    <sheet string="PIA">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="eleve_id"/>
+                                <field name="implantation_id" options='{"no_create": True}'/>
+                                <field name="difficulte"/>
+                                <field name="domaine"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="force"/>
+                                <field name="besoin"/>
+                                <field name="objectif"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Intervenants">
+                                <field name="intervenant_ids">
+                                    <tree delete="1">
+                                        <field name="name"/>
+                                        <field name="fonction"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

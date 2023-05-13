@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_pia" model="ir.actions.report">
+            <field name="name">PIA</field>
+            <field name="model">eps.pia</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">eps.report_pia</field>
+            <field name="report_file">eps.report_pia</field>
+            <field name="print_report_name">'PIA%s' % object.report_name</field>
+            <field name="binding_model_id" ref="model_eps_pia"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_pia" model="ir.actions.report">
+            <field name="name">Conseil de classe</field>
+            <field name="model">pia.conseil</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">eps.report_conseil</field>
+            <field name="report_file">eps.report_conseil</field>
+            <field name="print_report_name">'Conseil %s' % object.report_name</field>
+            <field name="binding_model_id" ref="model_pia_conseil"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
