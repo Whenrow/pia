@@ -30,6 +30,11 @@ class Intervenant(models.Model):
     email = fields.Char()
     implantation_id = fields.Many2one('tipwit_base.implantation', 'Organisme')
 
+    def _compute_user_id(self):
+        for partner in self:
+            if partner.fonction:
+                partner.user_id = partner.user_ids[0]
+
 
 class Users(models.Model):
     _inherit = 'res.users'
