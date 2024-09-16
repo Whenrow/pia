@@ -57,3 +57,14 @@ class Users(models.Model):
                     user.allowed_implantation_ids = self.env['pia.implantation'].search([]).ids
             else:
                 user.allowed_implantation_ids = []
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        for rec in res:
+            self.env['pia.intervenant'].create({
+                'name': rec.name,
+                'user_id': rec.id,
+                'fonction': 'autre',
+            })
+        return res
