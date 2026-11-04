@@ -9,10 +9,11 @@ class Conseil(models.Model):
     niv_fr = fields.Text('Niveau en français')
     niv_math = fields.Text('Niveau en math')
     rel = fields.Text('Relationnel')
-    logo = fields.Text('Niveau en logo')
-    gym = fields.Text('Niveau en gym')
-    info = fields.Text('Niveau en informatique')
-    trav_man = fields.Text('Niveau en travaux manuels')
+    logo = fields.Text('Information en logo')
+    gym = fields.Text('Information en gym')
+    info = fields.Text('Information en informatique')
+    trav_man = fields.Text('Information en travaux manuels')
+    mei = fields.Text('MEI')
 
 
 class Pia(models.Model):
@@ -25,7 +26,7 @@ class Pia(models.Model):
     ], required=True)
     date = fields.Date('Date', default=fields.Date.today)
     eleve_id = fields.Many2one('tipwit_base.eleve', 'Elève')
-    implantation_id = fields.Many2one(related='eleve_id.implantation_id', string='Implantation')
+    implantation_id = fields.Many2one(related='eleve_id.implantation_id', string='Classe')
     intervenant_ids = fields.Many2many(
         'res.partner',
         'pia_intervant_eps_pia_rel',
@@ -38,7 +39,7 @@ class Pia(models.Model):
         ('auto', 'Autonomie'),
         ('attitude', 'Attitudes liées au travail'),
         ('peda', 'Pédagogique')], "Domaine")
-    
+
     difficulte = fields.Text('Difficulté principale')
     force = fields.Text('Force de l\'élève')
     besoin = fields.Text('Besoins de l\'élève')

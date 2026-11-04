@@ -11,7 +11,7 @@
             <field name="binding_model_id" ref="model_eps_pia"/>
             <field name="binding_type">report</field>
         </record>
-        <record id="action_report_pia" model="ir.actions.report">
+        <record id="action_report_conseil" model="ir.actions.report">
             <field name="name">Conseil de classe</field>
             <field name="model">pia.conseil</field>
             <field name="report_type">qweb-pdf</field>

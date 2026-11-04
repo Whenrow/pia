@@ -18,6 +18,12 @@
                 <xpath expr="//field[@name='observation']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
+                <xpath expr="//field[@name='trouble_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='responsable_id']" position="attributes">
+                    <attribute name="string">Titulaire</attribute>
+                </xpath>
                 <xpath expr="//field[@name='autre']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>

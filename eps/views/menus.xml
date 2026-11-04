@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="eps.action_window_pia">
+            <field name="name">PIA</field>
+            <field name="res_model">eps.pia</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="PIA" id="eps.menu_pia" parent="pia.menu_root" action="eps.action_window_pia" groups="tipwit_base.group_tipwit_manager" sequence="4"/>
+    </data>
+</odoo>

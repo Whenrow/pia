@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_bilan_logo_form_view_inherit_eps" model="ir.ui.view">
+            <field name="name">pia.bilan.logo.form.eps</field>
+            <field name="model">pia.bilan.logo</field>
+            <field name="inherit_id" ref="pia.pia_bilan_logo_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='note_pre']" position="attributes">
+                    <attribute name="string">Note précédent</attribute>
+                </xpath>
+                <xpath expr="//field[@name='ecart_type_pre']" position="attributes">
+                    <attribute name="string">Écart-type précédent</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

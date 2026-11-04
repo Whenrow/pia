@@ -13,6 +13,7 @@ class Eleve(models.Model):
     street_3 = fields.Char("street_3")
     ville_3 = fields.Char("ville_3")
     droit_image = fields.Boolean("Droit à l'image")
+    maturite = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4')], string="Maturité")
 
     job_1 = fields.Char("job_1")
     job_2 = fields.Char("job_2")
@@ -29,6 +30,7 @@ class Eleve(models.Model):
     outil = fields.Selection([('rien', 'Rien'), ('pc', 'PC'), ('tab', 'Tablette')], string="Outil numérique")
     detail_ids = fields.One2many('eps.eleve.detail', 'eleve_id')
     pia_count = fields.Integer(compute='_compute_conseil_count')
+    trouble_ids = fields.Many2many('pia.trouble', 'pia_trouble_pia_eleve_rel', 'trouble_id', 'eleve_id')
 
     def _compute_conseil_count(self):
         for eleve in self:
@@ -36,7 +38,7 @@ class Eleve(models.Model):
                 ('eleve_id', '=', eleve.id)
             ])
         super()._compute_conseil_count()
-    
+
     def action_view_pia(self):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("eps.action_view_pia")

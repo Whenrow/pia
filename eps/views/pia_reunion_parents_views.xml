@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pia_reunion_parents_form_view_inherit_eps" model="ir.ui.view">
+            <field name="name">pia.reunion.parent.form.eps</field>
+            <field name="model">pia.reunion.parents</field>
+            <field name="inherit_id" ref="pia.pia_reunion_parents_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='resume_integration']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='resume_ecole']" position="attributes">
+                    <attribute name="string">Résumé école</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

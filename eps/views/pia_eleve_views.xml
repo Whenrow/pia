@@ -55,17 +55,29 @@
                         <field name="email_tuteur_3" string="Email"/>
                     </group>
                 </xpath>
+                <xpath expr="//field[@name='coordi_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
                 <xpath expr="//field[@name='insti_id']" position="attributes">
-                    <attribute name="string">Titulaire</attribute>
+                    <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//field[@name='implantation_id']" position="attributes">
                     <attribute name="string">Classe</attribute>
+                </xpath>
+                <xpath expr="//field[@name='implantation_id']" position="after">
+                    <field name="coordi_id" string="Titulaire 2"/>
                 </xpath>
                 <xpath expr="//field[@name='logo_id']" position="attributes">
                     <attribute name="string">Logopède</attribute>
                 </xpath>
                 <xpath expr="//field[@name='coordi_id']" position="attributes">
                     <attribute name="string">Titulaire 2</attribute>
+                </xpath>
+                <xpath expr="//field[@name='bilan_medical']" position="attributes">
+                    <attribute name="string">Informations médicales</attribute>
+                </xpath>
+                <xpath expr="//field[@name='diagnostic']" position="replace">
+                    <field name="trouble_ids" widget="many2many_tags"/>
                 </xpath>
                 <xpath expr="//field[@name='situation_psycho_sociale']" position="attributes">
                     <attribute name="string">Informations importantes</attribute>
@@ -79,6 +91,9 @@
                             <field name="prise"/>
                         </tree>
                     </field>
+                </xpath>
+                <xpath expr="//field[@name='annee_etude']" position="replace">
+                    <field name="maturite"/>
                 </xpath>
             </field>
         </record>
@@ -112,6 +127,6 @@
                     Créer un PIA
                 </p>
             </field>
-        </record>       
+        </record>
     </data>
 </odoo>
